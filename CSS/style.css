@@ -65,11 +65,11 @@
 .navbar .dropdownList{
   display: none;
   position: absolute;
-  width: 100%;
+  width: 11.1111%;
 }
 
 .navbar .dropdownList li{
-  width: 11.1111%;
+  width: 100%;
   border-top: solid red 2px;
   border-bottom: solid red 2px;
 }
