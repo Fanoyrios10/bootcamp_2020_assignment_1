@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/style_Sign_up_Teacher.css">
     <title>Sign Up</title>
-    <script src="../../JS/script.js"></script>
+    <script src="../../JS/Sign_up_teacher_script.js" type="module"></script>
     <link rel="shortcut icon" href="../../Images/Webpage_Icons/Private_School.ico" type="image/x-icon">
 </head>
 <body>
@@ -80,7 +80,57 @@
         </ul>
     </div>
     <div class="Intro_Stripe">
-        <h1>Thank You for choosing to Sign Up into our School and create an account with us! Through this account you can monitor your classes and assignments you will be participating in. Before we begin the process, we would like to know whether you wish to learn or teach in our School. Click on the appropriate button bellow.</h1>
+        <h1>Below is a form you will have to fiil out and click Submit. If your Subject is not on the list click the button bellow and input your subject. If there is enough intrest from the students we might set up a few courses for it. Once you have seen the confirmation message go to sign in and choose the Courses you are intrested in teaching.</h1>
+    </div>
+    <div id="sign_up_teacher_main_pic">
+        <div id="sign_up_teacher_form_container">
+            <div class="header_form">
+                <h1>Sign Up Trainer Form</h1>
+            </div>
+            <section>
+                <form method="GET" name="sign_up_teacher_form">
+                    <p>
+                        First Name:<br>
+                        <input type="text" name="first_name" id="first_name" placeholder="Input your First Name here" required>
+                    </p>
+                    <p>
+                        Last Name:<br>
+                        <input type="text" name="last_name" id="last_name" placeholder="Input your Last Name here" required>
+                    </p>
+                    <p>
+                        E-mail:<br>
+                        <input type="email" name="e-mail" id="e-mail" placeholder="Input your E-mail here" required>
+                    </p>
+                    <p>
+                        Password:<br>
+                        <input type="password" name="password" id="password" minlength="4" placeholder="Minimum 4 characters" required>
+                    </p>
+                    <p>
+                        Subject:<br>
+                        <select name="subject" id="subject" required>
+                            <option value="History">History</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Sociology">Sociology</option>
+                            <option value="Physical_Education">Physical Education</option>
+                        </select>
+                        <br>
+                        <label><input type="checkbox" name="Subject" id="teacher_sign_up_subject_not_available" onclick="teacher_sign_up_form_extension()">The Subject I want to teach is not on this list</label>
+                        <div id="teacher_sign_up_hidden_section">
+                            <br>
+                            Input the subject you wish to teach at:
+                            <br>
+                            <input type="text" name="subject_not_available" id="Subject_not_available_text_input" placeholder="Input the subject here">
+                        </div>
+                        <input type="submit" value="Sign Up" onclick="sign_up()" id="sign_up_button">
+                        <br>
+                        <span id="sign_up_complete">Please wait</span>
+                    </p>
+                </form>
+                <button id="sign_up_button_real" onclick="sign_up()">Sign Up</button>
+            </section>
+        </div>
     </div>
 </body>
 </html>

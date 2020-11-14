@@ -52,10 +52,10 @@
 }
 
 .navbar ul li:hover {
-  background-color: rgb(238, 255, 0);
-  color: red;
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
   text-decoration: underline;
-  transition: background-color 1s;
 }
 
 .navbar ul li:not(:hover){
@@ -87,6 +87,27 @@
   margin-top: 15px;
   transition: display 1s;
 }
+
+.navbar .dropdownContainer .dropdownList li:hover{
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.navbar .dropdownContainer .dropdownList li:hover a{
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes colorSwitchNavBar {
+  0%   {background-color:red;}
+  25%  {color: black; background-color:yellow;}
+  50%  {color: white; background-color:blue;}
+  75%  {background-color:green;}
+  100% {background-color:red;}
+}
+
 
 .main_Index{
   background-image: url(../Images/Welcome_Page/Greenwood_exterior.jpg);

@@ -52,10 +52,10 @@
 }
 
 .navbar ul li:hover {
-  background-color: rgb(238, 255, 0);
-  color: red;
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
   text-decoration: underline;
-  transition: background-color 1s;
 }
 
 .navbar ul li:not(:hover){
@@ -88,6 +88,28 @@
   transition: display 1s;
 }
 
+
+.navbar .dropdownContainer .dropdownList li:hover{
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.navbar .dropdownContainer .dropdownList li:hover a{
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes colorSwitchNavBar {
+  0%   {background-color:red;}
+  25%  {color: black; background-color:yellow;}
+  50%  {color: white; background-color:blue;}
+  75%  {background-color:green;}
+  100% {background-color:red;}
+}
+
+
 .Intro_Stripe{
   text-align: center;
   width: 100%;
@@ -97,3 +119,83 @@
   padding-bottom: 25px;
 }
 
+.Intro_Stripe h1{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#sign_up_teacher_main_pic{
+  background-image: url(../Images/Sign_Up/teacher_form/photo-1587691592099-24045742c181.jpg);
+  width: 100%;
+  height: 986px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#sign_up_teacher_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 80%;
+  position: absolute;
+  left: 35%;
+  top: 5%;
+  border-radius: 25px;
+}
+
+.header_form{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-bottom: dotted 2px black;
+}
+
+.header_form h1{
+  padding: 20px 10px;
+  font-size: 30px;
+  letter-spacing: 5px;
+  color: red;
+}
+
+section{
+  padding: 100px 20px 20px 0;
+  width: 100%;
+  height: 600px;
+}
+
+form{
+  font-size: 25px;
+  text-align: center;
+}
+input{
+  width: 75%;
+  height: 30px;
+  background-color: aqua;
+}
+#teacher_sign_up_subject_not_available{
+  width: 20px;
+  height: 20px;
+}
+
+#sign_up_button_real{
+  width: 75%;
+  position: relative;
+  left: 13%;
+  height: 50px;
+  background-color: aqua;
+  font-size: 25px;
+  text-align: center;
+}
+
+#sign_up_button{
+  display: none;
+}
+
+#teacher_sign_up_hidden_section{
+  display: none;
+}
+
+#sign_up_complete{
+  display: none;
+}
