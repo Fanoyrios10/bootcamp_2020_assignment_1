@@ -89,3 +89,26 @@ function sign_in() {
     return false;
   }
 }
+
+
+
+function secretary_create_table() {
+  let container = document.getElementById("Image_Container");
+  for (let i = 0; i < students_number.length; i++) {
+    var x = document.createElement("table");
+    x.setAttribute("id", "myTable");
+    document.body.appendChild(x);
+  
+    var y = document.createElement("TR");
+    var l = document.createTextNode(students_first_name[i]);
+    y.appendChild(l);
+    y.setAttribute("id", "myTr");
+    document.getElementById("myTable").appendChild(y);
+  
+    var z = document.createElement("TD");
+    var t = document.createTextNode(students_first_name[i]);
+    z.appendChild(t);
+    document.getElementById("myTr").appendChild(z);
+  
+  }
+}

@@ -1,4 +1,4 @@
-
+/*
 let demo = {
   first_name: "Demo",
   last_name: "Demo",
@@ -54,7 +54,7 @@ let teacher6 = {
   password : "aGVsp39b",
   subjects : "Physical Education"
 };
-
+*/
 // The position inside the arrays correspond with one another. For examle first_name[1] goes with last_name[1]
 let teachers_number = [0,1,2,3,4,5,6];
 
