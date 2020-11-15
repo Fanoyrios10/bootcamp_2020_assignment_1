@@ -1,0 +1,198 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.header{
+  background-color: rgb(236, 28, 36);
+  width: 100%;
+  margin-left: auto;
+  text-align: center;
+  margin-right: auto;
+  height: 120px;
+}
+
+.header img{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.header h1{
+  display: inline-block;
+  margin-left: 100px;
+  width: 300px;
+  text-align: justify;
+  word-wrap: normal;
+}
+
+.navbar{
+  width: 100%;
+  text-align: center;
+}
+
+.navbar ul{
+  list-style: none;
+  display: flex;
+}
+.navbar ul li{
+  width: 11.111111%;
+  background-color: rgb(21, 78, 235);
+  padding-top: 15px;
+  cursor: pointer;
+  padding-bottom: 15px;
+}
+
+.navbar ul li a{
+  text-decoration: none;
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+
+.navbar ul li:hover {
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  text-decoration: underline;
+}
+
+.navbar ul li:not(:hover){
+  transition-duration: 1s;
+}
+
+.navbar .dropdownList{
+  display: none;
+  position: absolute;
+  width: 11.1111%;
+}
+
+.navbar .dropdownList li{
+  width: 100%;
+  text-align: center;
+  border-top: solid red 2px;
+  border-bottom: solid red 2px;
+}
+
+.navbar .dropdownList li a{
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.navbar .dropdownContainer:hover .dropdownList{
+  display: block;
+  z-index: 5;
+  margin-top: 15px;
+  transition: display 1s;
+}
+
+
+.navbar .dropdownContainer .dropdownList li:hover{
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+.navbar .dropdownContainer .dropdownList li:hover a{
+  animation: colorSwitchNavBar;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes colorSwitchNavBar {
+  0%   {background-color:red;}
+  25%  {color: black; background-color:yellow;}
+  50%  {color: white; background-color:blue;}
+  75%  {background-color:green;}
+  100% {background-color:red;}
+}
+
+
+.Intro_Stripe{
+  text-align: center;
+  width: 100%;
+  background-color: yellow;
+  color: red;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.Intro_Stripe h1{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+#sign_in_student_main_pic{
+  background-image: url(../Images/Sign_in/Sudent_sign_in/Student_Sign_In.jpg);
+  width: 100%;
+  height: 1100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+#sign_in_student_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 50%;
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  border-radius: 25px;
+}
+
+.header_form{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-bottom: dotted 2px black;
+}
+
+.header_form h1{
+  padding: 30px 10px;
+  font-size: 30px;
+  letter-spacing: 5px;
+  color: green;
+}
+
+section{
+  padding: 100px 20px 20px 0;
+  width: 100%;
+  height: 600px;
+}
+
+form{
+  font-size: 25px;
+  text-align: center;
+}
+input{
+  width: 75%;
+  height: 30px;
+  background-color: aqua;
+}
+#teacher_sign_in_subject_not_available{
+  width: 20px;
+  height: 20px;
+}
+
+#sign_in_button_real{
+  width: 75%;
+  position: relative;
+  left: 13%;
+  height: 50px;
+  background-color: aqua;
+  font-size: 25px;
+  text-align: center;
+}
+
+#sign_in_button{
+  display: none;
+}
+
+
+#sign_in_complete{
+  display: none;
+}

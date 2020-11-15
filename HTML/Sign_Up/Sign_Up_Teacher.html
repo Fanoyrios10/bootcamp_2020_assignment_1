@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/style_Sign_up_Teacher.css">
-    <title>Sign Up</title>
-    <script src="../../JS/Sign_up_teacher_script.js" type="module"></script>
+    <title>Sign Up Teacher</title>
+    <script src="../../JS/teacher_script_and_data.js"></script>
+    <script src="../../JS/Sign_Up_Teachers.js"></script>
     <link rel="shortcut icon" href="../../Images/Webpage_Icons/Private_School.ico" type="image/x-icon">
 </head>
 <body>
@@ -107,7 +108,7 @@
                     </p>
                     <p>
                         Subject:<br>
-                        <select name="subject" id="subject" required>
+                        <select name="subject" id="subject" required onchange="History_Background()">
                             <option value="History">History</option>
                             <option value="Programming">Programming</option>
                             <option value="Chemistry">Chemistry</option>

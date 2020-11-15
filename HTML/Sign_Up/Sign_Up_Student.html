@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/style_Sign_up.css">
-    <title>Sign Up</title>
-    <script src="../../JS/script.js"></script>
+    <link rel="stylesheet" href="../../CSS/style_Sign_up_Students.css">
+    <title>Sign Up Student</title>
+    <script src="../../JS/students_script_and_data.js"></script>
+    <script src="../../JS/Sign_Up_Students.js"></script>
     <link rel="shortcut icon" href="../../Images/Webpage_Icons/Private_School.ico" type="image/x-icon">
 </head>
 <body>
@@ -80,18 +81,61 @@
         </ul>
     </div>
     <div class="Intro_Stripe">
-        <h1>Thank You for choosing to Sign Up into our School and create an account with us! Through this account you can monitor your classes and assignments you will be participating in. Before we begin the process, we would like to know whether you wish to learn or teach in our School. Click on the appropriate button bellow.</h1>
+        <h1>Below is a form you will have to fill out and click Submit. Once you have seen the confirmation message go to sign in and choose the Courses you are intrested in attending.</h1>
     </div>
-    <div class="Image_Container">
-        <div class="left">
-            <div class="button-Inside-Image">
-                <a href="#" class="button_a">I am a Student</a>
+    <div id="sign_up_student_main_pic">
+        <div id="sign_up_student_form_container">
+            <div class="header_form">
+                <h1>Sign Up Student Form</h1>
             </div>
-        </div>
-        <div class="right">
-            <div class="button-Inside-Image">
-                <a href="#" class="button_a">I am a Teacher</a>
-            </div>
+            <section>
+                <form name="sign_up_student_form" id="sign_up_student_form">
+                    <p>
+                        First Name:<br>
+                        <input type="text" name="first_name" id="first_name" placeholder="Input your First Name here" required>
+                    </p>
+                    <p>
+                        Last Name:<br>
+                        <input type="text" name="last_name" id="last_name" placeholder="Input your Last Name here" required>
+                    </p>
+                    <p>
+                        Date of Birth:<br>
+                        <input type="date" name="Date_Of_Birth" id="Date_Of_Birth" required>
+                    </p>
+                    <p>
+                        Tutition Fees:<br>
+                        <select name="Tutition_fees" id="Tutition_fees" required>
+                            <option value="Full_time:3000€">Full time:3000€</option>
+                            <option value="Part_time:2500€">Part time:2500€</option>
+                            <option value="Online:2000€">Online:2000€</option>
+                        </select>
+                    </p>
+                    <p>
+                        E-mail:<br>
+                        <input type="email" name="e-mail" id="e-mail" placeholder="Input your E-mail here" required>
+                    </p>
+                    <p>
+                        Password:<br>
+                        <input type="password" name="password" id="password" minlength="4" placeholder="Minimum 4 characters" required>
+                    </p>
+                    <p>
+                        Subject:<br>
+                        <select name="subject" id="subject" required onchange="History_Background()">
+                            <option value="History">History</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Sociology">Sociology</option>
+                            <option value="Physical_Education">Physical Education</option>
+                        </select>
+                        <br>
+                        <input type="submit" value="Sign Up" onclick="sign_up()" id="sign_up_button">
+                        <br>
+                        <span id="sign_up_complete">Please wait</span>
+                    </p>
+                </form>
+                <button id="sign_up_button_real" onclick="sign_up()">Sign Up</button>
+            </section>
         </div>
     </div>
 </body>
