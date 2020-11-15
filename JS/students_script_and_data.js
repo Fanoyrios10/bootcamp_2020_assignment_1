@@ -1,3 +1,6 @@
+// The position inside the arrays correspond with one another. For examle first_name[1] goes with last_name[1]
+let students_number = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40];
+
 let students_first_name = ["Demo","Maksymilian","Tamera","Helena","Ronny","Shyla","Eesa","Mark","Deacon","Annette","Tia","Blanka","Yehuda","Ivan","Tanvir","Jaxson","Fatimah","Taybah","Kamile","Connor","Caroline","Frederick","Bethanie","Aubrey","Kavita","Reid","Brax","Mihai","Adeline","Divine","Chanel","Forrest","Roma", "Dollie","Hal","Uwais","Luella","Haroon","Isla-Mae","Susanna","Rima"];
 
 let students_last_name = ["Demo","Grant","Barnes","Henry","Mccormik","Hunt","Melia","Higgins","Langley","Mora","Mcclain","Waters","Richard","Lozano","Bradshaw","Daniels","Hodges","Summers","Boone","Murray","Crowther","Major","Sinclair","Pemberton","Pacheco","Dalby","Leigh","Merritt","Roberson","Rawlings","Levy","Burgess","Sykes","Rodriguez","Coombes","Tucker","Sheridan","Copeland","Evans","Kumar","Burris"];
@@ -35,6 +38,7 @@ function sign_up() {
     window.alert("Not all text inputs are filled in");
     return false;
   } else{
+    students_number.push(i);
     students_first_name.push(sign_up_first_name);
     students_last_name.push(sign_up_last_name);
     students_emails.push(sign_up_e_mail);
@@ -44,7 +48,7 @@ function sign_up() {
     students_tutitions_fees.push(sign_up_tutition_fees);
     console.log(students_last_name);
     sign_up_completion.style.display = "block";
-    let new_student = [sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_date_of_birth,sign_up_tutition_fees];
+    let new_student = [i,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_date_of_birth,sign_up_tutition_fees];
     localStorage.setItem("newest",JSON.stringify(new_student));
     setTimeout(function (){sign_up_completion.innerText = "Please wait."}, 1000);
     setTimeout(function (){sign_up_completion.innerText = "Please wait.."}, 2000);
@@ -54,5 +58,34 @@ function sign_up() {
     let newest = JSON.parse(window.localStorage.getItem("newest"));
     console.log(newest);
     return newest;
+  }
+}
+
+function sign_in() {
+  let email_sign_in = document.forms["sign_in_student_form"]["e-mail"].value;
+  let password_sign_in = document.forms["sign_in_student_form"]["password"].value;
+  console.log(email_sign_in);
+  console.log(password_sign_in);
+  let pass;
+  if (email_sign_in === "" || password_sign_in === "") {
+    window.alert("Not all inputs are filled in");
+    return false;
+  }else{
+    pass = 1;
+  }
+  for (let i = 0; i <= students_number.length; i++) {
+    if (email_sign_in == students_emails[i] || password_sign_in == passwords_students[i]) {
+      console.log(i);
+      window.alert("Welcome back " + students_first_name[i] + "!!!");
+      setTimeout (function (){location.href = "../student/student_home.html"}, 1000);
+      return i;
+    }else{
+      pass = 0;
+    }
+  }if (pass === 0) {
+    window.alert("Wrong e-mail or Password!!!");
+    return false;
+  }else{
+    return false;
   }
 }

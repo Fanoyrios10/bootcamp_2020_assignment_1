@@ -1,4 +1,4 @@
-function History_Background() {
+function change_background() {
   let background = document.getElementById("sign_up_teacher_main_pic");
   let subject_list = document.getElementById("subject").value;
   switch (subject_list) {

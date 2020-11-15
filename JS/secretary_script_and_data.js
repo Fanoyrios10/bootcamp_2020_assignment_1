@@ -9,7 +9,7 @@ function sign_in() {
     window.alert("Not all inputs are filled in");
     return false;
   }else if (email_sign_in === secretary_email || password_sign_in === secretary_password){
-    location.href = "../secretary/secretary_home.html"
+    location.href = "../secretary/secretary_home.html";
     return true;
   }else{
     window.alert("Wrong e-mail or Password!!!");

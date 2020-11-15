@@ -56,11 +56,18 @@ let teacher6 = {
 };
 
 // The position inside the arrays correspond with one another. For examle first_name[1] goes with last_name[1]
+let teachers_number = [0,1,2,3,4,5,6];
+
 let teachers_first_name = ["Demo","Suman","Yaseen","Mahir","Enya","Gus","Cooper"];
+
 let teachers_last_name = ["Demo","Hamilton","Beattie","Bond","Farley","Baxter","Bullock"];
+
 let teachers_email = ["TheDemoGamer@outlook.com","TheSomberGamer@gmail.com","TheReceptiveGamer@outlook.com","TheWhisperingGamer@outlook.com","TheTemporaryGamer@outlook.com","TheHard-to-findGamer@outlook.com","ThePoisedGamer@outlook.com"];
+
 let teachers_Password = ["Demo","SXHg5UZy","C63ZDnka","HyWtkRF5","zntYgDej","37ZvPk78","aGVsp39b"];
+
 let teachers_subjects = ["Demo","History","Programming","Chemistry","Physics","Sociology","Physical Education"];
+
 let teachers_subject_not_available = ["none","none","none","none","none","none","none"];
 
 function teacher_sign_up_form_extension() {
@@ -107,6 +114,7 @@ function sign_up() {
     window.alert("Not all text inputs are filled in");
     return false;
   } else{
+    teachers_number.push(i);
     teachers_first_name.push(sign_up_first_name);
     teachers_last_name.push(sign_up_last_name);
     teachers_email.push(sign_up_e_mail);
@@ -119,7 +127,7 @@ function sign_up() {
         teachers_subject_not_available.push(sign_up_subject_not_available);
       }
     sign_up_completion.style.display = "block";
-    let new_teacher = [sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_subject_not_available];
+    let new_teacher = [i,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_subject_not_available];
     localStorage.setItem("newest",JSON.stringify(new_teacher));
     setTimeout(function (){sign_up_completion.innerText = "Please wait."}, 1000);
     setTimeout(function (){sign_up_completion.innerText = "Please wait.."}, 2000);
@@ -131,4 +139,32 @@ function sign_up() {
     return newest;
   }
 }
-console.log(newest);
+
+function sign_in() {
+  let email_sign_in = document.forms["sign_in_teacher_form"]["e-mail"].value;
+  let password_sign_in = document.forms["sign_in_teacher_form"]["password"].value;
+  console.log(email_sign_in);
+  console.log(password_sign_in);
+  let pass;
+  if (email_sign_in === "" || password_sign_in === "") {
+    window.alert("Not all inputs are filled in");
+    return false;
+  }else{
+    pass = 1;
+  }
+  for (let i = 0; i <= teachers_number.length; i++) {
+    if (email_sign_in == teachers_emails[i] || password_sign_in == teachers_Password[i]) {
+      console.log(i);
+      window.alert("Welcome back " + teachers_first_name[i] + "!!!");
+      setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
+      return i;
+    }else{
+      pass = 0;
+    }
+  }if (pass === 0) {
+    window.alert("Wrong e-mail or Password!!!");
+    return false;
+  }else{
+    return false;
+  }
+}
