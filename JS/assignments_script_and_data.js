@@ -1,4 +1,4 @@
-let assignments_numbers = [];
+let assignments_number = [];
 
 let assignments_title = [];
 

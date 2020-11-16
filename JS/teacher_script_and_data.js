@@ -70,6 +70,28 @@ let teachers_subjects = ["Demo","History","Programming","Chemistry","Physics","S
 
 let teachers_subject_not_available = ["none","none","none","none","none","none","none"];
 
+
+if (sessionStorage.getItem('test') == null) {
+  sessionStorage.setItem("teachers_number_old",JSON.stringify(teachers_number));
+  sessionStorage.setItem("teachers_first_name_old",JSON.stringify(teachers_first_name));
+  sessionStorage.setItem("teachers_last_name_old",JSON.stringify(teachers_last_name));
+  sessionStorage.setItem("teachers_email_old",JSON.stringify(teachers_email));
+  sessionStorage.setItem("teachers_Password_old",JSON.stringify(teachers_Password));
+  sessionStorage.setItem("teachers_subjects_old",JSON.stringify(teachers_subjects));
+  sessionStorage.setItem("teachers_subject_not_available_old",JSON.stringify(teachers_subject_not_available));
+  window.alert("First Run");
+}
+
+
+teachers_number_old = JSON.parse(window.sessionStorage.getItem("teachers_number_old"));
+teachers_first_name_old = JSON.parse(window.sessionStorage.getItem("teachers_first_name_old"));
+teachers_last_name_old = JSON.parse(window.sessionStorage.getItem("teachers_last_name_old"));
+teachers_email_old = JSON.parse(window.sessionStorage.getItem("teachers_email_old"));
+teachers_Password_old = JSON.parse(window.sessionStorage.getItem("teachers_Password_old"));
+teachers_subjects_old = JSON.parse(window.sessionStorage.getItem("teachers_subjects_old"));
+teachers_subject_not_available_old = JSON.parse(window.sessionStorage.getItem("teachers_subject_not_available_old"));
+
+
 function teacher_sign_up_form_extension() {
   let sign_up_teacher_checkbox = document.getElementById("teacher_sign_up_subject_not_available");
   let sign_up_teacher_hidden_section = document.getElementById("teacher_sign_up_hidden_section");
@@ -101,44 +123,98 @@ function sign_up() {
   let sign_up_subject = document.forms["sign_up_teacher_form"]["subject"].value;
   let sign_up_subject_not_available = document.forms["sign_up_teacher_form"]["subject_not_available"].value;
   let pass;
-  for (let i = 0; i <=teachers_email.length; i++) {
-    if (teachers_email[i] === sign_up_e_mail) {
-      window.alert("E-mail already exists");
-      pass = 0;
-      return false;
-    }else{
-      pass = 1;
+  let x;
+  if (sessionStorage.getItem('test') == null) {
+    for (let i = 0; i <=teachers_email_old.length; i++) {
+      if (teachers_email_old[i] == sign_up_e_mail) {
+        window.alert("E-mail already exists");
+        pass = 0;
+        return false;
+      }else{
+        pass = 1;
+        x = i;
+      }
+    }
+  }else{
+    for (let i = 0; i <=teachers_email_new.length; i++) {
+      if (teachers_email_new[i] == sign_up_e_mail) {
+        window.alert("E-mail already exists");
+        pass = 0;
+        return false;
+      }else{
+        pass = 1;
+        x = i;
+      }
     }
   }
   if (sign_up_first_name == "" || sign_up_last_name == "" || sign_up_e_mail == "" || sign_up_password == "" || sign_up_subject == "") {
     window.alert("Not all text inputs are filled in");
     return false;
   } else{
-    teachers_number.push(i);
-    teachers_first_name.push(sign_up_first_name);
-    teachers_last_name.push(sign_up_last_name);
-    teachers_email.push(sign_up_e_mail);
-    teachers_Password.push(sign_up_password);
-    teachers_subjects.push(sign_up_subject);
+    if (sessionStorage.getItem('test') == null) {
+      teachers_number_old.push(x);
+      teachers_first_name_old.push(sign_up_first_name);
+      teachers_last_name_old.push(sign_up_last_name);
+      teachers_email_old.push(sign_up_e_mail);
+      teachers_Password_old.push(sign_up_password);
+      teachers_subjects_old.push(sign_up_subject);
+      sessionStorage.setItem("teachers_number_new",JSON.stringify(teachers_number_old));
+      sessionStorage.setItem("teachers_first_name_new",JSON.stringify(teachers_first_name_old));
+      sessionStorage.setItem("teachers_last_name_new",JSON.stringify(teachers_last_name_old));
+      sessionStorage.setItem("teachers_email_new",JSON.stringify(teachers_email_old));
+      sessionStorage.setItem("teachers_Password_new",JSON.stringify(teachers_Password_old));
+      sessionStorage.setItem("teachers_subjects_new",JSON.stringify(teachers_subjects_old));
+      sessionStorage.setItem("teachers_subject_not_available_new",JSON.stringify(teachers_subject_not_available_old));
+    }else{
+      console.log(teachers_first_name_new);
+      teachers_number_new = JSON.parse(window.sessionStorage.getItem("teachers_number_new"));
+      teachers_first_name_new = JSON.parse(window.sessionStorage.getItem("teachers_first_name_new"));
+      teachers_last_name_new = JSON.parse(window.sessionStorage.getItem("teachers_last_name_new"));
+      teachers_email_new = JSON.parse(window.sessionStorage.getItem("teachers_email_new"));
+      teachers_Password_new = JSON.parse(window.sessionStorage.getItem("teachers_Password_new"));
+      teachers_subjects_new = JSON.parse(window.sessionStorage.getItem("teachers_subjects_new"));
+      teachers_subject_not_available_new = JSON.parse(window.sessionStorage.getItem("teachers_subject_not_available_new"));
+      teachers_number_new.push(x);
+      teachers_first_name_new.push(sign_up_first_name);
+      teachers_last_name_new.push(sign_up_last_name);
+      teachers_email_new.push(sign_up_e_mail);
+      teachers_Password_new.push(sign_up_password);
+      teachers_subjects_new.push(sign_up_subject);
+      sessionStorage.setItem("teachers_number_new",JSON.stringify(teachers_number_new));
+      sessionStorage.setItem("teachers_first_name_new",JSON.stringify(teachers_first_name_new));
+      sessionStorage.setItem("teachers_last_name_new",JSON.stringify(teachers_last_name_new));
+      sessionStorage.setItem("teachers_email_new",JSON.stringify(teachers_email_new));
+      sessionStorage.setItem("teachers_Password_new",JSON.stringify(teachers_Password_new));
+      sessionStorage.setItem("teachers_subjects_new",JSON.stringify(teachers_subjects_new));
+      sessionStorage.setItem("teachers_subject_not_available_new",JSON.stringify(teachers_subject_not_available_new));
+    }
       if (sign_up_subject_not_available == "") {
         teachers_subject_not_available.push("none");
         sign_up_subject_not_available = "none";
       }else{
-        teachers_subject_not_available.push(sign_up_subject_not_available);
+        teachers_subject_not_available_new.push(sign_up_subject_not_available);
       }
+      sessionStorage.setItem('test', 1);
     sign_up_completion.style.display = "block";
-    let new_teacher = [i,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_subject_not_available];
-    localStorage.setItem("newest",JSON.stringify(new_teacher));
+    let new_teacher = [x,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_subject_not_available];
     setTimeout(function (){sign_up_completion.innerText = "Please wait."}, 1000);
     setTimeout(function (){sign_up_completion.innerText = "Please wait.."}, 2000);
     setTimeout(function (){sign_up_completion.innerText = "Please wait..."}, 3000);
     setTimeout(function (){sign_up_completion.innerText = "Done"}, 4000);
     setTimeout(function (){window.alert("Thank You for Signing Up " + sign_up_first_name + "! Please go to the Signing in Section so you can fill ou the form for the courses that you will be teaching at.")}, 4100);
-    let newest = JSON.parse(window.localStorage.getItem("newest"));
-    console.log(newest);
-    return newest;
+    console.log(new_teacher);
+    return true;
   }
 }
+
+teachers_number_new = JSON.parse(window.sessionStorage.getItem("teachers_number_new"));
+teachers_first_name_new = JSON.parse(window.sessionStorage.getItem("teachers_first_name_new"));
+teachers_last_name_new = JSON.parse(window.sessionStorage.getItem("teachers_last_name_new"));
+teachers_email_new = JSON.parse(window.sessionStorage.getItem("teachers_email_new"));
+teachers_Password_new = JSON.parse(window.sessionStorage.getItem("teachers_Password_new"));
+teachers_subjects_new = JSON.parse(window.sessionStorage.getItem("teachers_subjects_new"));
+teachers_subject_not_available_new = JSON.parse(window.sessionStorage.getItem("teachers_subject_not_available_new"));
+
 
 function sign_in() {
   let email_sign_in = document.forms["sign_in_teacher_form"]["e-mail"].value;
@@ -152,19 +228,109 @@ function sign_in() {
   }else{
     pass = 1;
   }
-  for (let i = 0; i <= teachers_number.length; i++) {
-    if (email_sign_in == teachers_emails[i] || password_sign_in == teachers_Password[i]) {
-      console.log(i);
-      window.alert("Welcome back " + teachers_first_name[i] + "!!!");
-      setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
-      return i;
-    }else{
-      pass = 0;
+  if (sessionStorage.getItem('test') == null) {
+    for (let i = 0; i <= teachers_number_old.length; i++) {
+      if (email_sign_in == teachers_email_old[i] || password_sign_in == teachers_Password_old[i]) {
+        console.log(i);
+        window.alert("Welcome back " + teachers_first_name[i] + "!!!");
+        setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
+        return i;
+      }else{
+        pass = 0;
+      }
     }
-  }if (pass === 0) {
+  }else {
+    for (let i = 0; i <= teachers_number_new.length; i++) {
+      if (email_sign_in == teachers_email_new[i] || password_sign_in == teachers_Password_new[i]) {
+        console.log(i);
+        window.alert("Welcome back " + teachers_first_name[i] + "!!!");
+        setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
+        return i;
+      }else{
+        pass = 0;
+      }
+    }
+  }
+  if (pass === 0) {
     window.alert("Wrong e-mail or Password!!!");
     return false;
   }else{
     return false;
+  }
+}
+
+window.onload = function secretary_create_table() {
+  if (sessionStorage.getItem('test') == null) {
+    for (let i = 1; i < teachers_number_old.length; i++) {  
+      let trc = document.createElement("tr");
+        var tdOne = document.createElement("td"); 
+        tdOne.innerHTML = teachers_number_old[i];
+        var tdTwo = document.createElement("td"); 
+        tdTwo.innerHTML = teachers_first_name_old[i];
+        var tdThree = document.createElement("td"); 
+        tdThree.innerHTML = teachers_last_name_old[i];
+        let tdFour = document.createElement("td");
+        tdFour.innerHTML = teachers_email_old[i];
+        let tdFive = document.createElement("td");
+        tdFive.innerHTML = teachers_Password_old[i];
+        let tdSix = document.createElement("td");
+        tdSix.innerHTML = teachers_subjects_old[i];
+        let tdSeven = document.createElement("td");
+        tdSeven.innerHTML = teachers_subject_not_available_old[i];
+        let Edit_Button = document.createElement("button");
+        Edit_Button.innerText = "EDIT";
+        let tdNine = document.createElement("td");
+        tdNine = Edit_Button;
+        let Update_Button = document.createElement("button");
+        Update_Button.innerText = "UPDATE";
+        let tdTen = document.createElement("td");
+        tdTen = Update_Button;
+        trc.appendChild(tdOne);
+        trc.appendChild(tdTwo);
+        trc.appendChild(tdThree);
+        trc.appendChild(tdFour);
+        trc.appendChild(tdFive);
+        trc.appendChild(tdSix);
+        trc.appendChild(tdSeven);
+        trc.appendChild(tdNine);
+        trc.appendChild(tdTen);
+        document.getElementById("myTable").appendChild(trc);
+    }
+  }else{
+    for (let i = 0; i < teachers_number_new.length; i++) {  
+      let trc = document.createElement("tr");
+        let tdOne = document.createElement("td"); 
+        tdOne.innerHTML = teachers_number_new[i];
+        let tdTwo = document.createElement("td"); 
+        tdTwo.innerHTML = teachers_first_name_new[i];
+        let tdThree = document.createElement("td"); 
+        tdThree.innerHTML = teachers_last_name_new[i];
+        let tdFour = document.createElement("td");
+        tdFour.innerHTML = teachers_email_new[i];
+        let tdFive = document.createElement("td");
+        tdFive.innerHTML = teachers_Password_new[i];
+        let tdSix = document.createElement("td");
+        tdSix.innerHTML = teachers_subjects_new[i];
+        let tdSeven = document.createElement("td");
+        tdSeven.innerHTML = teachers_subject_not_available_new[i];
+        let Edit_Button = document.createElement("button");
+        Edit_Button.innerText = "EDIT";
+        let tdNine = document.createElement("td");
+        tdNine = Edit_Button;
+        let Update_Button = document.createElement("button");
+        Update_Button.innerText = "UPDATE";
+        let tdTen = document.createElement("td");
+        tdTen = Update_Button;
+        trc.appendChild(tdOne);
+        trc.appendChild(tdTwo);
+        trc.appendChild(tdThree);
+        trc.appendChild(tdFour);
+        trc.appendChild(tdFive);
+        trc.appendChild(tdSix);
+        trc.appendChild(tdSeven);
+        trc.appendChild(tdNine);
+        trc.appendChild(tdTen);
+        document.getElementById("myTable").appendChild(trc);
+      }
   }
 }

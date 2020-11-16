@@ -15,6 +15,28 @@ let passwords_students = ["demo","RED6xetX","aVY74J6G","YhZx7cze","fRbT2nv4","NK
 
 let subjects_students = ["demo","History","Programming","Chemistry","Physics","Sociology","Physical Education","History","Programming","Chemistry","Physics","Sociology","Physical Education","History","Programming","Chemistry","Physics","Sociology","Physical Education","History","Programming","Chemistry","Physics","Sociology","Physical Education","History","Programming","Chemistry","Physics","Sociology","Physical Education","History","Programming","Chemistry","Physics","Sociology","Physical Education","History","Programming","Chemistry","Physics"];
 
+if (sessionStorage.getItem('test2') == null) {
+  sessionStorage.setItem("students_number_old",JSON.stringify(students_number));
+  sessionStorage.setItem("students_first_name_old",JSON.stringify(students_first_name));
+  sessionStorage.setItem("students_last_name_old",JSON.stringify(students_last_name));
+  sessionStorage.setItem("students_date_of_birth_old",JSON.stringify(students_date_of_birth));
+  sessionStorage.setItem("students_tutitions_fees_old",JSON.stringify(students_tutitions_fees));
+  sessionStorage.setItem("students_emails_old",JSON.stringify(students_emails));
+  sessionStorage.setItem("passwords_students_old",JSON.stringify(passwords_students));
+  sessionStorage.setItem("subjects_students_old",JSON.stringify(subjects_students));
+  window.alert("First Run");
+}
+
+students_number_old = JSON.parse(window.sessionStorage.getItem("students_number_old"));
+students_first_name_old = JSON.parse(window.sessionStorage.getItem("students_first_name_old"));
+students_last_name_old = JSON.parse(window.sessionStorage.getItem("students_last_name_old"));
+students_emails_old = JSON.parse(window.sessionStorage.getItem("students_emails_old"));
+students_date_of_birth_old = JSON.parse(window.sessionStorage.getItem("students_date_of_birth_old"));
+students_tutitions_fees_old = JSON.parse(window.sessionStorage.getItem("students_tutitions_fees_old"));
+passwords_students_old = JSON.parse(window.sessionStorage.getItem("passwords_students_old"));
+subjects_students_old = JSON.parse(window.sessionStorage.getItem("subjects_students_old"));
+
+
 function sign_up() {
   let sign_up_completion = document.getElementById("sign_up_complete");
   let sign_up_first_name = document.forms["sign_up_student_form"]["first_name"].value;
@@ -25,47 +47,102 @@ function sign_up() {
   let sign_up_date_of_birth = document.forms["sign_up_student_form"]["Date_Of_Birth"].value;
   let sign_up_tutition_fees = document.forms["sign_up_student_form"]["Tutition_fees"].value;
   let pass;
-  for (let i = 0; i <=students_emails.length; i++) {
-    if (students_emails[i] === sign_up_e_mail) {
-      window.alert("E-mail already exists");
-      pass = 0;
-      return false;
-    }else{
-      pass = 1;
+  let x;
+  if (sessionStorage.getItem('test2') == null) {
+    for (let i = 0; i <=students_emails_old.length; i++) {
+      if (students_emails_old[i] === sign_up_e_mail) {
+        window.alert("E-mail already exists");
+        pass = 0;
+        return false;
+      }else{
+        pass = 1;
+        x = i;
+      }
+    }
+  }else{
+    for (let i = 0; i <=students_emails_new.length; i++) {
+      if (students_emails_new[i] === sign_up_e_mail) {
+        window.alert("E-mail already exists");
+        pass = 0;
+        return false;
+      }else{
+        pass = 1;
+        x = i;
+      }
     }
   }
   if (sign_up_first_name == "" || sign_up_last_name == "" || sign_up_e_mail == "" || sign_up_password == "" || sign_up_subject == "" || sign_up_date_of_birth == "" || sign_up_tutition_fees == "") {
     window.alert("Not all text inputs are filled in");
     return false;
   } else{
-    students_number.push(i);
-    students_first_name.push(sign_up_first_name);
-    students_last_name.push(sign_up_last_name);
-    students_emails.push(sign_up_e_mail);
-    passwords_students.push(sign_up_password);
-    subjects_students.push(sign_up_subject);
-    students_date_of_birth.push(sign_up_date_of_birth);
-    students_tutitions_fees.push(sign_up_tutition_fees);
-    console.log(students_last_name);
+    if (sessionStorage.getItem('test2') == null) {
+      students_number_old.push(x);
+      students_first_name_old.push(sign_up_first_name);
+      students_last_name_old.push(sign_up_last_name);
+      students_emails_old.push(sign_up_e_mail);
+      passwords_students_old.push(sign_up_password);
+      subjects_students_old.push(sign_up_subject);
+      students_date_of_birth_old.push(sign_up_date_of_birth);
+      students_tutitions_fees_old.push(sign_up_tutition_fees);
+      sessionStorage.setItem("students_number_new",JSON.stringify(students_number_old));
+      sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_old));
+      sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_old));
+      sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_old));
+      sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_old));
+      sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_old));
+      sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_old));
+      sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_old));
+    }else{
+      students_number_new = JSON.parse(window.sessionStorage.getItem("students_number_new"));
+      students_first_name_new = JSON.parse(window.sessionStorage.getItem("students_first_name_new"));
+      students_last_name_new = JSON.parse(window.sessionStorage.getItem("students_last_name_new"));
+      students_emails_new = JSON.parse(window.sessionStorage.getItem("students_emails_new"));
+      students_date_of_birth_new = JSON.parse(window.sessionStorage.getItem("students_date_of_birth_new"));
+      students_tutitions_fees_new = JSON.parse(window.sessionStorage.getItem("students_tutitions_fees_new"));
+      passwords_students_new = JSON.parse(window.sessionStorage.getItem("passwords_students_new"));
+      subjects_students_new = JSON.parse(window.sessionStorage.getItem("subjects_students_new"));
+      students_number_new.push(x);
+      students_first_name_new.push(sign_up_first_name);
+      students_last_name_new.push(sign_up_last_name);
+      students_emails_new.push(sign_up_e_mail);
+      passwords_students_new.push(sign_up_password);
+      subjects_students_new.push(sign_up_subject);
+      students_date_of_birth_new.push(sign_up_date_of_birth);
+      students_tutitions_fees_new.push(sign_up_tutition_fees);
+      sessionStorage.setItem("students_number_new",JSON.stringify(students_number_new));
+      sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_new));
+      sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_new));
+      sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_new));
+      sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_new));
+      sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_new));
+      sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_new));
+      sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_new));
+    }
     sign_up_completion.style.display = "block";
-    let new_student = [i,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_date_of_birth,sign_up_tutition_fees];
-    localStorage.setItem("newest",JSON.stringify(new_student));
+    let new_student = [x,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_date_of_birth,sign_up_tutition_fees];
+    sessionStorage.setItem('test2', 1);
     setTimeout(function (){sign_up_completion.innerText = "Please wait."}, 1000);
     setTimeout(function (){sign_up_completion.innerText = "Please wait.."}, 2000);
     setTimeout(function (){sign_up_completion.innerText = "Please wait..."}, 3000);
     setTimeout(function (){sign_up_completion.innerText = "Done"}, 4000);
     setTimeout(function (){window.alert("Thank You for Signing Up " + sign_up_first_name + "! Please go to the Signing in Section so you can fill ou the form for the courses that you will be teaching at.")}, 4100);
-    let newest = JSON.parse(window.localStorage.getItem("newest"));
-    console.log(newest);
-    return newest;
+    console.log(new_student);
+    return new_student;
   }
 }
+
+students_number_new = JSON.parse(window.sessionStorage.getItem("students_number_new"));
+students_first_name_new = JSON.parse(window.sessionStorage.getItem("students_first_name_new"));
+students_last_name_new = JSON.parse(window.sessionStorage.getItem("students_last_name_new"));
+students_emails_new = JSON.parse(window.sessionStorage.getItem("students_emails_new"));
+students_date_of_birth_new = JSON.parse(window.sessionStorage.getItem("students_date_of_birth_new"));
+students_tutitions_fees_new = JSON.parse(window.sessionStorage.getItem("students_tutitions_fees_new"));
+passwords_students_new = JSON.parse(window.sessionStorage.getItem("passwords_students_new"));
+subjects_students_new = JSON.parse(window.sessionStorage.getItem("subjects_students_new"));
 
 function sign_in() {
   let email_sign_in = document.forms["sign_in_student_form"]["e-mail"].value;
   let password_sign_in = document.forms["sign_in_student_form"]["password"].value;
-  console.log(email_sign_in);
-  console.log(password_sign_in);
   let pass;
   if (email_sign_in === "" || password_sign_in === "") {
     window.alert("Not all inputs are filled in");
@@ -73,16 +150,30 @@ function sign_in() {
   }else{
     pass = 1;
   }
-  for (let i = 0; i <= students_number.length; i++) {
-    if (email_sign_in == students_emails[i] || password_sign_in == passwords_students[i]) {
-      console.log(i);
-      window.alert("Welcome back " + students_first_name[i] + "!!!");
-      setTimeout (function (){location.href = "../student/student_home.html"}, 1000);
-      return i;
-    }else{
-      pass = 0;
+  if (sessionStorage.getItem('test2') == null) {
+    for (let i = 0; i <= students_number_old.length; i++) {
+      if (email_sign_in == students_emails_old[i] || password_sign_in == passwords_students_old[i]) {
+        console.log(i);
+        window.alert("Welcome back " + students_first_name[i] + "!!!");
+        setTimeout (function (){location.href = "../student/student_home.html"}, 1000);
+        return i;
+      }else{
+        pass = 0;
+      }
     }
-  }if (pass === 0) {
+  }else{
+    for (let i = 0; i <= students_number_new.length; i++) {
+      if (email_sign_in == students_emails_new[i] || password_sign_in == passwords_students_new[i]) {
+        console.log(i);
+        window.alert("Welcome back " + students_first_name[i] + "!!!");
+        setTimeout (function (){location.href = "../student/student_home.html"}, 1000);
+        return i;
+      }else{
+        pass = 0;
+      }
+    }
+  }
+  if (pass === 0) {
     window.alert("Wrong e-mail or Password!!!");
     return false;
   }else{
@@ -92,23 +183,84 @@ function sign_in() {
 
 
 
-function secretary_create_table() {
-  let container = document.getElementById("Image_Container");
-  for (let i = 0; i < students_number.length; i++) {
-    var x = document.createElement("table");
-    x.setAttribute("id", "myTable");
-    document.body.appendChild(x);
-  
-    var y = document.createElement("TR");
-    var l = document.createTextNode(students_first_name[i]);
-    y.appendChild(l);
-    y.setAttribute("id", "myTr");
-    document.getElementById("myTable").appendChild(y);
-  
-    var z = document.createElement("TD");
-    var t = document.createTextNode(students_first_name[i]);
-    z.appendChild(t);
-    document.getElementById("myTr").appendChild(z);
-  
+window.onload = function secretary_create_table() {
+  if (sessionStorage.getItem('test2') == null) {
+    for (let i = 1; i < students_number_old.length; i++) {  
+      let trc = document.createElement("tr");
+        var tdOne = document.createElement("td"); 
+        tdOne.innerHTML = students_number_old[i];
+        var tdTwo = document.createElement("td"); 
+        tdTwo.innerHTML = students_first_name_old[i];
+        var tdThree = document.createElement("td"); 
+        tdThree.innerHTML = students_last_name_old[i];
+        let tdFour = document.createElement("td");
+        tdFour.innerHTML = students_emails_old[i];
+        let tdFive = document.createElement("td");
+        tdFive.innerHTML = students_date_of_birth_old[i];
+        let tdSix = document.createElement("td");
+        tdSix.innerHTML = students_tutitions_fees_old[i];
+        let tdSeven = document.createElement("td");
+        tdSeven.innerHTML = passwords_students_old[i];
+        let tdEight = document.createElement("td");
+        tdEight.innerHTML = subjects_students_old[i];
+        let Edit_Button = document.createElement("button");
+        Edit_Button.innerText = "EDIT";
+        let tdNine = document.createElement("td");
+        tdNine = Edit_Button;
+        let Update_Button = document.createElement("button");
+        Update_Button.innerText = "UPDATE";
+        let tdTen = document.createElement("td");
+        tdTen = Update_Button;
+        trc.appendChild(tdOne);
+        trc.appendChild(tdTwo);
+        trc.appendChild(tdThree);
+        trc.appendChild(tdFour);
+        trc.appendChild(tdFive);
+        trc.appendChild(tdSix);
+        trc.appendChild(tdSeven);
+        trc.appendChild(tdEight);
+        trc.appendChild(tdNine);
+        trc.appendChild(tdTen);
+        document.getElementById("myTable").appendChild(trc);
+    }
+  }else{
+    for (let i = 0; i < students_number_new.length; i++) {  
+      let trc = document.createElement("tr");
+        let tdOne = document.createElement("td"); 
+        tdOne.innerHTML = students_number_new[i];
+        let tdTwo = document.createElement("td"); 
+        tdTwo.innerHTML = students_first_name_new[i];
+        let tdThree = document.createElement("td"); 
+        tdThree.innerHTML = students_last_name_new[i];
+        let tdFour = document.createElement("td");
+        tdFour.innerHTML = students_emails_new[i];
+        let tdFive = document.createElement("td");
+        tdFive.innerHTML = students_date_of_birth_new[i];
+        let tdSix = document.createElement("td");
+        tdSix.innerHTML = students_tutitions_fees_new[i];
+        let tdSeven = document.createElement("td");
+        tdSeven.innerHTML = passwords_students_new[i];
+        let tdEight = document.createElement("td");
+        tdEight.innerHTML = subjects_students_new[i];
+        let Edit_Button = document.createElement("button");
+        Edit_Button.innerText = "EDIT";
+        let tdNine = document.createElement("td");
+        tdNine = Edit_Button;
+        let Update_Button = document.createElement("button");
+        Update_Button.innerText = "UPDATE";
+        let tdTen = document.createElement("td");
+        tdTen = Update_Button;
+        trc.appendChild(tdOne);
+        trc.appendChild(tdTwo);
+        trc.appendChild(tdThree);
+        trc.appendChild(tdFour);
+        trc.appendChild(tdFive);
+        trc.appendChild(tdSix);
+        trc.appendChild(tdSeven);
+        trc.appendChild(tdEight);
+        trc.appendChild(tdNine);
+        trc.appendChild(tdTen);
+        document.getElementById("myTable").appendChild(trc);
+      }
   }
 }
