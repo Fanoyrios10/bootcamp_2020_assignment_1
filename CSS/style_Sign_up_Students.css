@@ -167,32 +167,43 @@ section{
 form{
   font-size: 25px;
   text-align: center;
+  margin: 20px auto;
 }
+
 input{
   width: 75%;
   height: 30px;
   background-color: aqua;
+  text-align: center;
 }
+
 #teacher_sign_up_subject_not_available{
   width: 20px;
   height: 20px;
 }
 
-#sign_up_button_real{
+
+
+#sign_up_button{
   width: 75%;
   position: relative;
   left: 13%;
   height: 50px;
   background-color: aqua;
   font-size: 25px;
+  margin-top: 20px;
   text-align: center;
 }
 
 #sign_up_button{
-  display: none;
+  display: block;
 }
 
 
 #sign_up_complete{
+  display: none;
+}
+
+#sign_up_button_real{
   display: none;
 }

@@ -172,6 +172,7 @@ input{
   width: 75%;
   height: 30px;
   background-color: aqua;
+  text-align: center;
 }
 #teacher_sign_in_subject_not_available{
   width: 20px;

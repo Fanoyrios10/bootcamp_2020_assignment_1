@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/style_Sign_up_Students.css">
     <title>Sign Up Student</title>
-    <script src="../../JS/students_script_and_data.js"></script>
-    <script src="../../JS/Sign_Up_Students.js"></script>
     <link rel="shortcut icon" href="../../Images/Webpage_Icons/Private_School.ico" type="image/x-icon">
 </head>
 <body>
@@ -81,7 +79,7 @@
         </ul>
     </div>
     <div class="Intro_Stripe">
-        <h1>Below is a form you will have to fill out and click Submit. Once you have seen the confirmation message go to sign in and choose the Courses you are intrested in attending.</h1>
+        <h1 id="stripe_header">Below is a form you will have to fill out and click Submit. Once you have done so go to sign in and choose the Courses you are intrested in attending.</h1>
     </div>
     <div id="sign_up_student_main_pic">
         <div id="sign_up_student_form_container">
@@ -89,7 +87,7 @@
                 <h1>Sign Up Student Form</h1>
             </div>
             <section>
-                <form name="sign_up_student_form" id="sign_up_student_form">
+                <form name="sign_up_student_form" id="sign_up_student_form" onsubmit="sign_up()">
                     <p>
                         First Name:<br>
                         <input type="text" name="first_name" id="first_name" placeholder="Input your First Name here" required>
@@ -100,7 +98,7 @@
                     </p>
                     <p>
                         Date of Birth:<br>
-                        <input type="date" name="Date_Of_Birth" id="Date_Of_Birth" required>
+                        <input type="date" name="Date_Of_Birth" id="Date_Of_Birth" min="1996-01-01" max="2002-12-31" required>
                     </p>
                     <p>
                         Tutition Fees:<br>
@@ -129,7 +127,7 @@
                             <option value="Physical_Education">Physical Education</option>
                         </select>
                         <br>
-                        <input type="submit" value="Sign Up" onclick="sign_up()" id="sign_up_button">
+                        <input type="submit" value="Sign Up" id="sign_up_button">
                         <br>
                         <span id="sign_up_complete">Please wait</span>
                     </p>
@@ -138,5 +136,7 @@
             </section>
         </div>
     </div>
+    <script src="../../JS/students_script_and_data.js"></script>
+    <script src="../../JS/Sign_Up_Students.js"></script>
 </body>
 </html>

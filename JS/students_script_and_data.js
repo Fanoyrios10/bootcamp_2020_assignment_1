@@ -5,7 +5,9 @@ let students_first_name = ["Demo","Maksymilian","Tamera","Helena","Ronny","Shyla
 
 let students_last_name = ["Demo","Grant","Barnes","Henry","Mccormik","Hunt","Melia","Higgins","Langley","Mora","Mcclain","Waters","Richard","Lozano","Bradshaw","Daniels","Hodges","Summers","Boone","Murray","Crowther","Major","Sinclair","Pemberton","Pacheco","Dalby","Leigh","Merritt","Roberson","Rawlings","Levy","Burgess","Sykes","Rodriguez","Coombes","Tucker","Sheridan","Copeland","Evans","Kumar","Burris"];
 
-let students_date_of_birth = [new Date(1990, 01, 01),new Date(1960, 01, 02),new Date(1996, 05, 22),new Date(1996, 05, 24),new Date(1996, 07, 24),new Date(1996, 10, 25),new Date(1996, 05, 17),new Date(1996, 02, 09),new Date(1996, 06, 30),new Date(1996, 07, 07),new Date(1996, 02, 14),new Date(1997, 11, 29),new Date(1997, 12, 17),new Date(1997, 10, 02),new Date(1997, 08, 06),new Date(1997, 02, 05),new Date(1998, 06, 15),new Date(1999, 10, 02),new Date(1999, 05, 21),new Date(1999, 02, 06),new Date(1999, 05, 22),new Date(2000, 01, 01),new Date(2000, 06, 09),new Date(2000, 09, 22),new Date(2000, 06, 12),new Date(2001, 04, 25),new Date(2001, 04, 11),new Date(2001, 05, 18),new Date(2002, 05, 07),new Date(2002, 03, 29),new Date(2002, 09, 16),new Date(1999, 05, 21),new Date(1999, 05, 21),new Date(1999, 05, 21),new Date(2002, 05, 21),new Date(2002, 05, 11),new Date(2002, 09, 14),new Date(2002, 04, 10),new Date(2002, 09, 10),new Date(2002, 04, 23),new Date(2002, 10, 09)];
+students_date_of_birth_0 = [new Date(90, 1, 1),new Date(96, 0, 2),new Date(96, 0, 22),new Date(96, 5, 24),new Date(96, 7, 24),new Date(96, 10, 25),new Date(96, 5, 17),new Date(96, 2, 9),new Date(96, 6, 30),new Date(96, 7, 7),new Date(96, 2, 14),new Date(97, 11, 29),new Date(97, 11, 17),new Date(97, 10, 2),new Date(97, 8, 6),new Date(97, 2, 5),new Date(98, 6, 15),new Date(99, 10, 2),new Date(99, 5, 21),new Date(99, 2, 06),new Date(99, 5, 22),new Date(2000, 0, 1),new Date(2000, 6, 9),new Date(2000, 9, 22),new Date(2000, 6, 12),new Date(2001, 4, 25),new Date(2001, 4, 11),new Date(2001, 5, 18),new Date(2002, 5, 7),new Date(2002, 3, 29),new Date(2002, 9, 16),new Date(1999, 5, 21),new Date(1999, 5, 21),new Date(1999, 5, 21),new Date(2002, 5, 21),new Date(2002, 5, 11),new Date(2002, 9, 14),new Date(2002, 4, 10),new Date(2002, 9, 10),new Date(2002, 4, 23),new Date(2002, 10, 09)];
+
+let students_date_of_birth = students_date_of_birth_0.map(d => d.toDateString());
 
 let students_tutitions_fees = ["Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€"];
 
@@ -24,7 +26,7 @@ if (sessionStorage.getItem('test2') == null) {
   sessionStorage.setItem("students_emails_old",JSON.stringify(students_emails));
   sessionStorage.setItem("passwords_students_old",JSON.stringify(passwords_students));
   sessionStorage.setItem("subjects_students_old",JSON.stringify(subjects_students));
-  window.alert("First Run");
+  window.alert("First Run Students");
 }
 
 students_number_old = JSON.parse(window.sessionStorage.getItem("students_number_old"));
@@ -177,13 +179,13 @@ function sign_in() {
     window.alert("Wrong e-mail or Password!!!");
     return false;
   }else{
-    return false;
+    return true;
   }
 }
 
 
-
-window.onload = function secretary_create_table() {
+if (document.getElementById("stripe_header").innerHTML == "From here you can edit and update students.") {
+  window.onload = () => {
   if (sessionStorage.getItem('test2') == null) {
     for (let i = 1; i < students_number_old.length; i++) {  
       let trc = document.createElement("tr");
@@ -262,5 +264,6 @@ window.onload = function secretary_create_table() {
         trc.appendChild(tdTen);
         document.getElementById("myTable").appendChild(trc);
       }
+    }
   }
 }

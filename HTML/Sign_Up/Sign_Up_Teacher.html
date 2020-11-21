@@ -81,7 +81,7 @@
         </ul>
     </div>
     <div class="Intro_Stripe">
-        <h1>Below is a form you will have to fiil out and click Submit. If your Subject is not on the list click the button bellow and input your subject. If there is enough intrest from the students we might set up a few courses for it. Once you have seen the confirmation message go to sign in and choose the Courses you are intrested in teaching.</h1>
+        <h1 id="stripe_header">Below is a form you will have to fill out and click Submit. If your Subject is not on the list click the button bellow and input your subject. If there is enough intrest from the students we might set up a few courses for it. Once you have clicked on submit go to sign in and choose the Courses you are intrested in teaching.</h1>
     </div>
     <div id="sign_up_teacher_main_pic">
         <div id="sign_up_teacher_form_container">
@@ -89,7 +89,7 @@
                 <h1>Sign Up Trainer Form</h1>
             </div>
             <section>
-                <form name="sign_up_teacher_form">
+                <form name="sign_up_teacher_form" id="sign_up_teacher_form" onsubmit="sign_up()">
                     <p>
                         First Name:<br>
                         <input type="text" name="first_name" id="first_name" placeholder="Input your First Name here" required>
@@ -124,7 +124,8 @@
                             <br>
                             <input type="text" name="subject_not_available" id="Subject_not_available_text_input" placeholder="Input the subject here">
                         </div>
-                        <input type="submit" value="Sign Up" onclick="sign_up()" id="sign_up_button">
+                        <br>
+                        <input type="submit" value="Sign Up" id="sign_up_button">
                         <br>
                         <span id="sign_up_complete">Please wait</span>
                     </p>

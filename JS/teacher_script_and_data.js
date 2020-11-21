@@ -79,7 +79,7 @@ if (sessionStorage.getItem('test') == null) {
   sessionStorage.setItem("teachers_Password_old",JSON.stringify(teachers_Password));
   sessionStorage.setItem("teachers_subjects_old",JSON.stringify(teachers_subjects));
   sessionStorage.setItem("teachers_subject_not_available_old",JSON.stringify(teachers_subject_not_available));
-  window.alert("First Run");
+  window.alert("First Run Teachers");
 }
 
 
