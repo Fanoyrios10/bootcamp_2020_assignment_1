@@ -4,34 +4,29 @@
   font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
-body{
-  background-color: tomato;
-}
-
-
 .header{
+  background-color: rgb(236, 28, 36);
   width: 100%;
   margin-left: auto;
   text-align: center;
   margin-right: auto;
   height: 120px;
-  background-image: linear-gradient(270deg, red,green,blue,yellow);
-  background-size: 800% 800%;
-  color: purple;
-  animation: BanerAnimation;
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
 }
 
-@keyframes BanerAnimation {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+
+body{
+  background-image: url("../Images/Background_Tiles/orange_paper.gif");
+}
+
+.header img{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
 }
 
 .header h1{
   display: inline-block;
-  padding-top: 20px;
+  margin-left: 100px;
   width: 300px;
   text-align: justify;
   word-wrap: normal;
@@ -80,14 +75,14 @@ body{
 
 .navbar .dropdownList li{
   width: 100%;
+  text-align: center;
   border-top: solid red 2px;
   border-bottom: solid red 2px;
 }
 
 .navbar .dropdownList li a{
-  width: 100%;
   height: 100%;
-  appearance: button;
+  width: 100%;
   cursor: pointer;
 }
 
@@ -97,6 +92,7 @@ body{
   margin-top: 15px;
   transition: display 1s;
 }
+
 
 .navbar .dropdownContainer .dropdownList li:hover{
   animation: colorSwitchNavBar;
@@ -118,6 +114,7 @@ body{
   100% {background-color:red;}
 }
 
+
 .Intro_Stripe{
   text-align: center;
   width: 100%;
@@ -132,10 +129,36 @@ body{
   padding-right: 50px;
 }
 
-.Image_Container{
+.Main_Container{
   width: 100%;
-  background-color: tomato;
-  height: 1800px;
+  height: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header_form h1{
+  padding: 30px 10px;
+  font-size: 30px;
+  letter-spacing: 5px;
+  color: green;
+}
+
+section{
+  padding: 100px 20px 20px 0;
+  width: 100%;
+  height: 600px;
+}
+
+form{
+  font-size: 25px;
+  text-align: center;
+}
+input{
+  width: 75%;
+  height: 30px;
+  background-color: aqua;
+  text-align: center;
 }
 
 table{
@@ -184,3 +207,107 @@ tr:not(:hover):nth-child(even){
   transition: 1.5s;
 }
 
+
+.button_not_in_a_form{
+  border: none;
+  background-color: rgb(2, 7, 255); 
+  border: 2px solid rgb(76, 175, 80);
+  color: red;
+  text-decoration: none;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 1s;
+  cursor: pointer;
+  margin: 20px auto;
+  text-align: center;
+  width: 23%;
+}
+
+#edit_personal_teacher_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 80%;
+  border-radius: 25px;
+  margin: 50px auto;
+  display: none;
+}
+
+.header_form{
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  border-bottom: dotted 2px black;
+}
+
+.header_form h1{
+  padding: 30px 10px;
+  font-size: 30px;
+  letter-spacing: 5px;
+  color: green;
+}
+
+section{
+  padding: 100px 20px 20px 0;
+  width: 100%;
+  height: 600px;
+}
+
+form{
+  font-size: 25px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+input{
+  width: 75%;
+  height: 30px;
+  background-color: aqua;
+  text-align: center;
+}
+
+#edit_personal_teacher_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 500px;
+  border-radius: 25px;
+  margin: 50px auto;
+  display: none;
+}
+
+#desire_course_and_Subject_teacher_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 600px;
+  border-radius: 25px;
+  margin: 50px auto;
+  display: none;
+}
+
+#Add_Asignment_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 1100px;
+  border-radius: 25px;
+  margin: 50px auto;
+  display: none;
+}
+
+#Edit_Asignment_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 1100px;
+  border-radius: 25px;
+  margin: 50px auto;
+  display: none;
+}
+
+#Update_Asignment_form_container{
+  background-color: rgba(192, 192, 192, 0.5);
+  width: 30%;
+  height: 1100px;
+  border-radius: 25px;
+  margin: 50px auto;
+  display: none;
+}

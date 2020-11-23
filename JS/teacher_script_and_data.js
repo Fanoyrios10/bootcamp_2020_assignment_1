@@ -56,6 +56,8 @@ let teacher6 = {
 };
 */
 // The position inside the arrays correspond with one another. For examle first_name[1] goes with last_name[1]
+let subjects = ["History","Programming","Chemistry","Physics","Sociology","Physical Education"];
+
 let teachers_number = [0,1,2,3,4,5,6];
 
 let teachers_first_name = ["Demo","Suman","Yaseen","Mahir","Enya","Gus","Cooper"];
@@ -70,6 +72,7 @@ let teachers_subjects = ["Demo","History","Programming","Chemistry","Physics","S
 
 let teachers_subject_not_available = ["none","none","none","none","none","none","none"];
 
+let teachers_desired_courses = ["none","67","none","none","none","none","none"];
 
 if (sessionStorage.getItem('test') == null) {
   sessionStorage.setItem("teachers_number_old",JSON.stringify(teachers_number));
@@ -79,6 +82,7 @@ if (sessionStorage.getItem('test') == null) {
   sessionStorage.setItem("teachers_Password_old",JSON.stringify(teachers_Password));
   sessionStorage.setItem("teachers_subjects_old",JSON.stringify(teachers_subjects));
   sessionStorage.setItem("teachers_subject_not_available_old",JSON.stringify(teachers_subject_not_available));
+  sessionStorage.setItem("teachers_desired_courses_old",JSON.stringify(teachers_desired_courses));
   window.alert("First Run Teachers");
 }
 
@@ -90,7 +94,7 @@ teachers_email_old = JSON.parse(window.sessionStorage.getItem("teachers_email_ol
 teachers_Password_old = JSON.parse(window.sessionStorage.getItem("teachers_Password_old"));
 teachers_subjects_old = JSON.parse(window.sessionStorage.getItem("teachers_subjects_old"));
 teachers_subject_not_available_old = JSON.parse(window.sessionStorage.getItem("teachers_subject_not_available_old"));
-
+teachers_desired_courses_old = JSON.parse(window.sessionStorage.getItem("teachers_desired_courses_old"));
 
 function teacher_sign_up_form_extension() {
   let sign_up_teacher_checkbox = document.getElementById("teacher_sign_up_subject_not_available");
@@ -124,6 +128,12 @@ function sign_up() {
   let sign_up_subject_not_available = document.forms["sign_up_teacher_form"]["subject_not_available"].value;
   let pass;
   let x;
+  if (sign_up_subject_not_available == "") {
+    teachers_subject_not_available.push("none");
+    sign_up_subject_not_available = "none";
+  }else{
+    teachers_subject_not_available_new.push(sign_up_subject_not_available);
+  }
   if (sessionStorage.getItem('test') == null) {
     for (let i = 0; i <=teachers_email_old.length; i++) {
       if (teachers_email_old[i] == sign_up_e_mail) {
@@ -158,6 +168,7 @@ function sign_up() {
       teachers_email_old.push(sign_up_e_mail);
       teachers_Password_old.push(sign_up_password);
       teachers_subjects_old.push(sign_up_subject);
+      teachers_desired_courses_old.push("none");
       sessionStorage.setItem("teachers_number_new",JSON.stringify(teachers_number_old));
       sessionStorage.setItem("teachers_first_name_new",JSON.stringify(teachers_first_name_old));
       sessionStorage.setItem("teachers_last_name_new",JSON.stringify(teachers_last_name_old));
@@ -165,21 +176,16 @@ function sign_up() {
       sessionStorage.setItem("teachers_Password_new",JSON.stringify(teachers_Password_old));
       sessionStorage.setItem("teachers_subjects_new",JSON.stringify(teachers_subjects_old));
       sessionStorage.setItem("teachers_subject_not_available_new",JSON.stringify(teachers_subject_not_available_old));
+      sessionStorage.setItem("teachers_desired_courses_new",JSON.stringify(teachers_desired_courses_old));
+
     }else{
-      console.log(teachers_first_name_new);
-      teachers_number_new = JSON.parse(window.sessionStorage.getItem("teachers_number_new"));
-      teachers_first_name_new = JSON.parse(window.sessionStorage.getItem("teachers_first_name_new"));
-      teachers_last_name_new = JSON.parse(window.sessionStorage.getItem("teachers_last_name_new"));
-      teachers_email_new = JSON.parse(window.sessionStorage.getItem("teachers_email_new"));
-      teachers_Password_new = JSON.parse(window.sessionStorage.getItem("teachers_Password_new"));
-      teachers_subjects_new = JSON.parse(window.sessionStorage.getItem("teachers_subjects_new"));
-      teachers_subject_not_available_new = JSON.parse(window.sessionStorage.getItem("teachers_subject_not_available_new"));
       teachers_number_new.push(x);
       teachers_first_name_new.push(sign_up_first_name);
       teachers_last_name_new.push(sign_up_last_name);
       teachers_email_new.push(sign_up_e_mail);
       teachers_Password_new.push(sign_up_password);
       teachers_subjects_new.push(sign_up_subject);
+      teachers_desired_courses_new.push("none");
       sessionStorage.setItem("teachers_number_new",JSON.stringify(teachers_number_new));
       sessionStorage.setItem("teachers_first_name_new",JSON.stringify(teachers_first_name_new));
       sessionStorage.setItem("teachers_last_name_new",JSON.stringify(teachers_last_name_new));
@@ -187,13 +193,8 @@ function sign_up() {
       sessionStorage.setItem("teachers_Password_new",JSON.stringify(teachers_Password_new));
       sessionStorage.setItem("teachers_subjects_new",JSON.stringify(teachers_subjects_new));
       sessionStorage.setItem("teachers_subject_not_available_new",JSON.stringify(teachers_subject_not_available_new));
+      sessionStorage.setItem("teachers_desired_courses_new",JSON.stringify(teachers_desired_courses_new));
     }
-      if (sign_up_subject_not_available == "") {
-        teachers_subject_not_available.push("none");
-        sign_up_subject_not_available = "none";
-      }else{
-        teachers_subject_not_available_new.push(sign_up_subject_not_available);
-      }
       sessionStorage.setItem('test', 1);
     sign_up_completion.style.display = "block";
     let new_teacher = [x,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_subject_not_available];
@@ -214,7 +215,7 @@ teachers_email_new = JSON.parse(window.sessionStorage.getItem("teachers_email_ne
 teachers_Password_new = JSON.parse(window.sessionStorage.getItem("teachers_Password_new"));
 teachers_subjects_new = JSON.parse(window.sessionStorage.getItem("teachers_subjects_new"));
 teachers_subject_not_available_new = JSON.parse(window.sessionStorage.getItem("teachers_subject_not_available_new"));
-
+teachers_desired_courses_new = JSON.parse(window.sessionStorage.getItem("teachers_desired_courses_new"));
 
 function sign_in() {
   let email_sign_in = document.forms["sign_in_teacher_form"]["e-mail"].value;
@@ -232,6 +233,9 @@ function sign_in() {
     for (let i = 0; i <= teachers_number_old.length; i++) {
       if (email_sign_in == teachers_email_old[i] || password_sign_in == teachers_Password_old[i]) {
         console.log(i);
+        let teacher_sign_in_id = teachers_number_old[i];
+        console.log(teacher_sign_in_id);
+        sessionStorage.setItem("teacher_sign_in_id",JSON.stringify(teacher_sign_in_id));
         window.alert("Welcome back " + teachers_first_name[i] + "!!!");
         setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
         return i;
@@ -243,6 +247,8 @@ function sign_in() {
     for (let i = 0; i <= teachers_number_new.length; i++) {
       if (email_sign_in == teachers_email_new[i] || password_sign_in == teachers_Password_new[i]) {
         console.log(i);
+        let teacher_sign_in_id = teachers_number_new[i];
+        sessionStorage.setItem("teacher_sign_in_id",JSON.stringify(teacher_sign_in_id));
         window.alert("Welcome back " + teachers_first_name[i] + "!!!");
         setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
         return i;
@@ -259,78 +265,246 @@ function sign_in() {
   }
 }
 
-window.onload = function secretary_create_table() {
+if (document.getElementById("stripe_header").innerHTML == "From here you can edit and update Trainers..") {
+  window.onload = function secretary_create_table() {
+    if (sessionStorage.getItem('test') == null) {
+      for (let i = 1; i < teachers_number_old.length; i++) {  
+        let trc = document.createElement("tr");
+          var tdOne = document.createElement("td"); 
+          tdOne.innerHTML = teachers_number_old[i];
+          var tdTwo = document.createElement("td"); 
+          tdTwo.innerHTML = teachers_first_name_old[i];
+          var tdThree = document.createElement("td"); 
+          tdThree.innerHTML = teachers_last_name_old[i];
+          let tdFour = document.createElement("td");
+          tdFour.innerHTML = teachers_email_old[i];
+          let tdFive = document.createElement("td");
+          tdFive.innerHTML = teachers_Password_old[i];
+          let tdSix = document.createElement("td");
+          tdSix.innerHTML = teachers_subjects_old[i];
+          let tdSeven = document.createElement("td");
+          tdSeven.innerHTML = teachers_subject_not_available_old[i];
+          let Edit_Button = document.createElement("button");
+          Edit_Button.innerText = "EDIT";
+          let tdNine = document.createElement("td");
+          tdNine = Edit_Button;
+          let Update_Button = document.createElement("button");
+          Update_Button.innerText = "UPDATE";
+          let tdTen = document.createElement("td");
+          tdTen = Update_Button;
+          trc.appendChild(tdOne);
+          trc.appendChild(tdTwo);
+          trc.appendChild(tdThree);
+          trc.appendChild(tdFour);
+          trc.appendChild(tdFive);
+          trc.appendChild(tdSix);
+          trc.appendChild(tdSeven);
+          trc.appendChild(tdNine);
+          trc.appendChild(tdTen);
+          document.getElementById("myTable").appendChild(trc);
+      }
+    }else{
+      for (let i = 0; i < teachers_number_new.length; i++) {  
+        let trc = document.createElement("tr");
+          let tdOne = document.createElement("td"); 
+          tdOne.innerHTML = teachers_number_new[i];
+          let tdTwo = document.createElement("td"); 
+          tdTwo.innerHTML = teachers_first_name_new[i];
+          let tdThree = document.createElement("td"); 
+          tdThree.innerHTML = teachers_last_name_new[i];
+          let tdFour = document.createElement("td");
+          tdFour.innerHTML = teachers_email_new[i];
+          let tdFive = document.createElement("td");
+          tdFive.innerHTML = teachers_Password_new[i];
+          let tdSix = document.createElement("td");
+          tdSix.innerHTML = teachers_subjects_new[i];
+          let tdSeven = document.createElement("td");
+          tdSeven.innerHTML = teachers_subject_not_available_new[i];
+          let Edit_Button = document.createElement("button");
+          Edit_Button.innerText = "EDIT";
+          let tdNine = document.createElement("td");
+          tdNine = Edit_Button;
+          let Update_Button = document.createElement("button");
+          Update_Button.innerText = "UPDATE";
+          let tdTen = document.createElement("td");
+          tdTen = Update_Button;
+          trc.appendChild(tdOne);
+          trc.appendChild(tdTwo);
+          trc.appendChild(tdThree);
+          trc.appendChild(tdFour);
+          trc.appendChild(tdFive);
+          trc.appendChild(tdSix);
+          trc.appendChild(tdSeven);
+          trc.appendChild(tdNine);
+          trc.appendChild(tdTen);
+          document.getElementById("myTable").appendChild(trc);
+        }
+    }
+  }
+}
+
+if (document.getElementById("stripe_header").innerHTML == "From here you can view and edit some of your personal information and choose the course you wish to attend.You can also add,edit and update assignments. If you wish to change something that is not in this form you will have to contact the secreatry.") {
+  let teacher_sign_in_id = JSON.parse(window.sessionStorage.getItem("teacher_sign_in_id"));
+  console.log(teacher_sign_in_id);
+    if (sessionStorage.getItem('test') == null) {
+      document.getElementById("table_teacher_home_number").innerHTML = teachers_number_old[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_first_name").innerHTML = teachers_first_name_old[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_last_name").innerHTML = teachers_last_name_old[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_email").innerHTML = teachers_email_old[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_password").innerHTML = teachers_Password_old[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_subject").innerHTML = teachers_subjects_old[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_desired_subject").innerHTML = teachers_subject_not_available_old[teacher_sign_in_id];
+    }else{
+      document.getElementById("table_teacher_home_number").innerHTML = teachers_number_new[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_first_name").innerHTML = teachers_first_name_new[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_last_name").innerHTML = teachers_last_name_new[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_email").innerHTML = teachers_email_new[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_password").innerHTML = teachers_Password_new[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_subject").innerHTML = teachers_subjects_new[teacher_sign_in_id];
+      document.getElementById("table_teacher_home_desired_subject").innerHTML = teachers_subject_not_available_new[teacher_sign_in_id];
+    }
+  if (sessionStorage.getItem('test3') == null) {
+    document.getElementById("table_teacher_home_desired_course").innerHTML = teachers_desired_courses_old[teacher_sign_in_id];
+  }else{
+    document.getElementById("table_teacher_home_desired_course").innerHTML = teachers_desired_courses_new[teacher_sign_in_id];
+    }
+}
+
+function teacher_sign_out() {
+  sessionStorage.removeItem("teacher_sign_in_id");
+  location.href = "../Sign_in/Sign_In_Teacher.html";
+}
+
+
+function teacher_edit_personal_information_form() {
+  if (document.getElementById("teacher_edit_my_personal_Information_button").innerHTML == "Edit my personal Information Show Form") {
+    document.getElementById("edit_personal_teacher_form_container").style.display = "block";
+    document.getElementById("teacher_edit_my_personal_Information_button").innerHTML = "Edit my personal Information Hide Form";
+  }else{
+    document.getElementById("edit_personal_teacher_form_container").style.display = "none";
+    document.getElementById("teacher_edit_my_personal_Information_button").innerHTML = "Edit my personal Information Show Form";
+  }
+  let teacher_sign_in_id = JSON.parse(window.sessionStorage.getItem("teacher_sign_in_id"));
   if (sessionStorage.getItem('test') == null) {
-    for (let i = 1; i < teachers_number_old.length; i++) {  
-      let trc = document.createElement("tr");
-        var tdOne = document.createElement("td"); 
-        tdOne.innerHTML = teachers_number_old[i];
-        var tdTwo = document.createElement("td"); 
-        tdTwo.innerHTML = teachers_first_name_old[i];
-        var tdThree = document.createElement("td"); 
-        tdThree.innerHTML = teachers_last_name_old[i];
-        let tdFour = document.createElement("td");
-        tdFour.innerHTML = teachers_email_old[i];
-        let tdFive = document.createElement("td");
-        tdFive.innerHTML = teachers_Password_old[i];
-        let tdSix = document.createElement("td");
-        tdSix.innerHTML = teachers_subjects_old[i];
-        let tdSeven = document.createElement("td");
-        tdSeven.innerHTML = teachers_subject_not_available_old[i];
-        let Edit_Button = document.createElement("button");
-        Edit_Button.innerText = "EDIT";
-        let tdNine = document.createElement("td");
-        tdNine = Edit_Button;
-        let Update_Button = document.createElement("button");
-        Update_Button.innerText = "UPDATE";
-        let tdTen = document.createElement("td");
-        tdTen = Update_Button;
-        trc.appendChild(tdOne);
-        trc.appendChild(tdTwo);
-        trc.appendChild(tdThree);
-        trc.appendChild(tdFour);
-        trc.appendChild(tdFive);
-        trc.appendChild(tdSix);
-        trc.appendChild(tdSeven);
-        trc.appendChild(tdNine);
-        trc.appendChild(tdTen);
-        document.getElementById("myTable").appendChild(trc);
+    document.forms["edit_personal_teacher_form"]["first_name"].value = teachers_first_name_old[teacher_sign_in_id];
+    document.forms["edit_personal_teacher_form"]["last_name"].value = teachers_last_name_old[teacher_sign_in_id];
+    document.forms["edit_personal_teacher_form"]["e-mail"].value = teachers_emails_old[teacher_sign_in_id];
+    document.forms["edit_personal_teacher_form"]["password"].value = teachers_Password_old[teacher_sign_in_id];
+  }else{
+    document.forms["edit_personal_teacher_form"]["first_name"].value = teachers_first_name_new[teacher_sign_in_id];
+    document.forms["edit_personal_teacher_form"]["last_name"].value = teachers_last_name_new[teacher_sign_in_id];
+    document.forms["edit_personal_teacher_form"]["e-mail"].value = teachers_emails_new[teacher_sign_in_id];
+    document.forms["edit_personal_teacher_form"]["password"].value = teachers_Password_new[teacher_sign_in_id];
+  }
+  return true;
+}
+
+function teacher_choose_desired_course_form() {
+  if (document.getElementById("teacher_choose_a_course_button").innerHTML == "Choose a subject and course I wish to teach at Show Form") {
+    document.getElementById("desire_course_and_Subject_teacher_form_container").style.display = "block";
+    document.getElementById("teacher_choose_a_course_button").innerHTML = "Choose a subject and course I wish to teach at Hide Form";
+  }else{
+    document.getElementById("desire_course_and_Subject_teacher_form_container").style.display = "none";
+    document.getElementById("teacher_choose_a_course_button").innerHTML = "Choose a subject and course I wish to teach at Show Form";
+  }
+  for (let i = 0; i < subjects.length; i++) {
+    let teacher_subject_list = document.createElement("option");
+    teacher_subject_list.innerHTML = subjects[i];
+    console.log(i);
+    teacher_subject_list.name = subjects[i];
+    document.getElementById("subject_teacher_select").appendChild(teacher_subject_list);
+  }
+  if (sessionStorage.getItem('test3') == null) {
+    for (let i = 1; i < course_title_old.length; i++) {
+      let teacher_course_list = document.createElement("option");
+      teacher_course_list.innerHTML = course_title_old[i];
+      teacher_course_list.name = course_title_old[i];
+      document.getElementById("course_teacher_select").appendChild(teacher_course_list);
     }
   }else{
-    for (let i = 0; i < teachers_number_new.length; i++) {  
-      let trc = document.createElement("tr");
-        let tdOne = document.createElement("td"); 
-        tdOne.innerHTML = teachers_number_new[i];
-        let tdTwo = document.createElement("td"); 
-        tdTwo.innerHTML = teachers_first_name_new[i];
-        let tdThree = document.createElement("td"); 
-        tdThree.innerHTML = teachers_last_name_new[i];
-        let tdFour = document.createElement("td");
-        tdFour.innerHTML = teachers_email_new[i];
-        let tdFive = document.createElement("td");
-        tdFive.innerHTML = teachers_Password_new[i];
-        let tdSix = document.createElement("td");
-        tdSix.innerHTML = teachers_subjects_new[i];
-        let tdSeven = document.createElement("td");
-        tdSeven.innerHTML = teachers_subject_not_available_new[i];
-        let Edit_Button = document.createElement("button");
-        Edit_Button.innerText = "EDIT";
-        let tdNine = document.createElement("td");
-        tdNine = Edit_Button;
-        let Update_Button = document.createElement("button");
-        Update_Button.innerText = "UPDATE";
-        let tdTen = document.createElement("td");
-        tdTen = Update_Button;
-        trc.appendChild(tdOne);
-        trc.appendChild(tdTwo);
-        trc.appendChild(tdThree);
-        trc.appendChild(tdFour);
-        trc.appendChild(tdFive);
-        trc.appendChild(tdSix);
-        trc.appendChild(tdSeven);
-        trc.appendChild(tdNine);
-        trc.appendChild(tdTen);
-        document.getElementById("myTable").appendChild(trc);
-      }
+    for (let i = 1; i < course_title_new.length; i++) {
+      let teacher_course_list = document.createElement("option");
+      teacher_course_list.innerHTML = course_title_new[i];
+      teacher_course_list.name = course_title_new[i];
+      document.getElementById("course_teacher_select").appendChild(teacher_course_list);
+    }
+  }
+}
+
+function desire_course_and_Subject_teacher() {
+  let teacher_sign_in_id = JSON.parse(window.sessionStorage.getItem("teacher_sign_in_id"));
+  let desire_subject_teacher = document.forms["course_and_Subject_teacher"]["subject_teacher_select"].value;
+  let desire_Course_teacher = document.forms["course_and_Subject_teacher"]["course_teacher_select"].value;
+  console.log(desire_Course_teacher);
+  if (sessionStorage.getItem('test') == null) {
+    delete teachers_subject_not_available_old[teacher_sign_in_id];
+    delete teachers_desired_courses_old[teacher_sign_in_id];
+    teachers_subject_not_available_old.splice(teacher_sign_in_id,1,desire_subject_teacher);
+    teachers_desired_courses_old.splice(teacher_sign_in_id,1,desire_Course_teacher);
+    sessionStorage.setItem("teachers_number_new",JSON.stringify(teachers_number_old));
+    sessionStorage.setItem("teachers_first_name_new",JSON.stringify(teachers_first_name_old));
+    sessionStorage.setItem("teachers_last_name_new",JSON.stringify(teachers_last_name_old));
+    sessionStorage.setItem("teachers_email_new",JSON.stringify(teachers_email_old));
+    sessionStorage.setItem("teachers_Password_new",JSON.stringify(teachers_Password_old));
+    sessionStorage.setItem("teachers_subjects_new",JSON.stringify(teachers_subjects_old));
+    sessionStorage.setItem("teachers_subject_not_available_new",JSON.stringify(teachers_subject_not_available_old));
+    sessionStorage.setItem("teachers_desired_courses_new",JSON.stringify(teachers_desired_courses_old));
+    console.log(teachers_desired_courses_old);
+  }else{
+    delete teachers_subject_not_available_new[teacher_sign_in_id];
+    delete teachers_desired_courses_new[teacher_sign_in_id];
+    teachers_subject_not_available_new.splice(teacher_sign_in_id,1,desire_subject_teacher);
+    teachers_desired_courses_new.splice(teacher_sign_in_id,1,desire_Course_teacher);
+    sessionStorage.setItem("teachers_number_new",JSON.stringify(teachers_number_new));
+    sessionStorage.setItem("teachers_first_name_new",JSON.stringify(teachers_first_name_new));
+    sessionStorage.setItem("teachers_last_name_new",JSON.stringify(teachers_last_name_new));
+    sessionStorage.setItem("teachers_email_new",JSON.stringify(teachers_email_new));
+    sessionStorage.setItem("teachers_Password_new",JSON.stringify(teachers_Password_new));
+    sessionStorage.setItem("teachers_subjects_new",JSON.stringify(teachers_subjects_new));
+    sessionStorage.setItem("teachers_subject_not_available_new",JSON.stringify(teachers_subject_not_available_new));
+    sessionStorage.setItem("teachers_desired_courses_new",JSON.stringify(teachers_desired_courses_new));
+    console.log(teachers_desired_courses_new);
+  }
+  sessionStorage.setItem('test', 1);
+  return true;
+}
+
+function teacher_add_an_assignment() {
+  if (document.getElementById("teacher_add_an_assignment_button").innerHTML == "Create a new Assignment Show Form") {
+    document.getElementById("Add_Asignment_form_container").style.display = "block";
+    document.getElementById("teacher_add_an_assignment_button").innerHTML = "Create a new Assignment Hide Form";
+  }else{
+  document.getElementById("Add_Asignment_form_container").style.display = "none";
+  document.getElementById("teacher_add_an_assignment_button").innerHTML = "Create a new Assignment Show Form";
+}
+  if (sessionStorage.getItem('test3') == null) {
+    for (let i = 1; i < course_title_old.length; i++) {
+      let teacher_course_list_assiignment = document.createElement("option");
+      teacher_course_list_assiignment.innerHTML = course_title_old[i];
+      teacher_course_list_assiignment.name = course_title_old[i];
+      document.getElementById("course_teacher_select_assignment").appendChild(teacher_course_list_assiignment);
+    }
+  }else{
+    for (let i = 1; i < course_title_new.length; i++) {
+      let teacher_course_list_assiignment = document.createElement("option");
+      teacher_course_list_assiignment.innerHTML = course_title_new[i];
+      teacher_course_list_assiignment.name = course_title_new[i];
+      document.getElementById("course_teacher_select_assignment").appendChild(teacher_course_list_assiignment);
+    }
+  }
+  if (sessionStorage.getItem('test2') == null) {
+    for (let i = 1; i < students_number_old.length; i++) {
+      let teacher_students_list_assiignment = document.createElement("option");
+      teacher_students_list_assiignment.innerHTML = students_last_name_old[i];
+      teacher_students_list_assiignment.name = students_last_name_old[i];
+      document.getElementById("student_teacher_select_assignment").appendChild(teacher_students_list_assiignment);
+    }
+  }else{
+    for (let i = 1; i < students_number_new.length; i++) {
+      let teacher_students_list_assiignment = document.createElement("option");
+      teacher_students_list_assiignment.innerHTML = students_last_name_new[i];
+      teacher_students_list_assiignment.name = students_last_name_new[i];
+      document.getElementById("student_teacher_select_assignment").appendChild(teacher_students_list_assiignment);
+    }
   }
 }

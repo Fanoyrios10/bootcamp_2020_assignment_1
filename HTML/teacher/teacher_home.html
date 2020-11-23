@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/style_teacher_home.css">
+    <title>Trainer Home</title>
+    <link rel="shortcut icon" href="../../Images/Webpage_Icons/Private_School.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <img src="../../Images/Welcome_Page/school_logo.png" alt="school_logo">
+        <h1>GREENWOOD PRIVATE SCHOOL</h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="../../index.html"> Home</a></li>
+            <li class="dropdownContainer">About Us
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Our Mission and Vision</a></li>
+                    <li><a href="../under_construction.html">Key Facts and School information</a></li>
+                    <li><a href="../under_construction.html">Our History</a></li>
+                    <li><a href="../under_construction.html">Board of Trustees</a></li>
+                    <li><a href="../under_construction.html">Testimonials</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Student Life
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">After School Program</a></li>
+                    <li><a href="../under_construction.html">Athletics</a></li>
+                    <li><a href="../under_construction.html">Commitment to Service and Social Justice</a></li>
+                    <li><a href="../under_construction.html">Electronics</a></li>
+                    <li><a href="../under_construction.html">Enrichment Opportunities</a></li>
+                    <li><a href="../under_construction.html">Lunch Program</a></li>
+                    <li><a href="../under_construction.html">News</a></li>
+                    <li><a href="../under_construction.html">School Calendar</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Academics
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Special Subjects</a></li>
+                    <li><a href="../under_construction.html">Special Academic Opportunities</a></li>
+                    <li><a href="../under_construction.html">Enrichment Opportunities</a></li>
+                    <li><a href="../under_construction.html">Place Based Education</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Admissions
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Choose Us!</a></li>
+                    <li><a href="../under_construction.html">Appliccation information</a></li>
+                    <li><a href="../under_construction.html">Application Process</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Get Involved
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Fundraising</a></li>
+                    <li><a href="../under_construction.html">Home and School Organization</a></li>
+                    <li><a href="../under_construction.html">How to Get Involved</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Helpful Info
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">FAQ</a></li>
+                    <li><a href="../under_construction.html">Forms</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Contact Us
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Contact information</a></li>
+                    <li><a href="../under_construction.html">Staff Directory</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Sign Up/Sign In
+                <ul class="dropdownList">
+                    <li><a href="../Sign_up/Sign_Up.html">Sign Up</a></li>
+                    <li><a href="../Sign_in/Sign_In.html">Sign In</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="Intro_Stripe">
+        <h1 id="stripe_header">From here you can view and edit some of your personal information and choose the course you wish to attend.You can also add,edit and update assignments. If you wish to change something that is not in this form you will have to contact the secreatry.</h1>
+    </div>
+    <div class="Main_Container">
+      <table id="table_teacher_home" name="table_teacher_home">
+        <tr>
+          <th colspan="2">Personal Information</th>
+        </tr>
+        <tr>
+          <td>Number:</td>
+          <td id="table_teacher_home_number"></td>
+        </tr>
+        <tr>
+          <td>First Name:</td>
+          <td id="table_teacher_home_first_name"></td>
+        </tr>
+        <tr>
+          <td>Last Name:</td>
+          <td id="table_teacher_home_last_name"></td>
+        </tr>
+        <tr>
+          <td>E-mai:</td>
+          <td id="table_teacher_home_email"></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td id="table_teacher_home_password"></td>
+        </tr>
+        <tr>
+          <td>Subject:</td>
+          <td id="table_teacher_home_subject"></td>
+        </tr>
+        <tr>
+          <td>Desired Subject:</td>
+          <td id="table_teacher_home_desired_subject"></td>
+        </tr>
+        <tr>
+          <td>Desired Course:</td>
+          <td id="table_teacher_home_desired_course"></td>
+        </tr>
+      </table>
+      <table id="table_teacher_home_assignments" name="table_teacher_home_assignments">
+        <tr>
+          <th colspan="9">Assignments</th>
+        </tr>
+        <tr>
+          <th>Number</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Submission</th>
+          <th>Oral Mark</th>
+          <th>Total Mark</th>
+          <th>Course</th>
+          <th>Student</th>
+          <th>Edit/Update</th>
+        </tr>
+      </table>
+      <button class="button_not_in_a_form" onclick="teacher_edit_personal_information_form()" id="teacher_edit_my_personal_Information_button">Edit my personal Information Show Form</button>
+      <button class="button_not_in_a_form" onclick="teacher_choose_desired_course_form()" id="teacher_choose_a_course_button">Choose a subject and course I wish to teach at Show Form</button>
+      <button class="button_not_in_a_form" id="teacher_add_an_assignment_button" onclick="teacher_add_an_assignment()">Create a new Assignment Show Form</button>
+      <button onclick="teacher_sign_out()" class="button_not_in_a_form">Sign Out</button>
+      <br>
+      <div id="edit_personal_teacher_form_container">
+        <div class="header_form">
+            <h1>Edit Personal Information Form</h1>
+        </div>
+        <section>
+            <form name="edit_personal_teacher_form" id="edit_personal_teacher_form" onsubmit="edit_personal_teacher()">
+                <p>
+                    First Name:<br>
+                    <input type="text" name="first_name" id="first_name" placeholder="Input your First Name here" required>
+                </p>
+                <p>
+                    Last Name:<br>
+                    <input type="text" name="last_name" id="last_name" placeholder="Input your Last Name here" required>
+                </p>
+                <p>
+                    E-mail:<br>
+                    <input type="email" name="e-mail" id="e-mail" placeholder="Input your E-mail here" required>
+                </p>
+                <p>
+                    Password:<br>
+                    <input type="password" name="password" id="password" minlength="4" placeholder="Minimum 4 characters" required>
+                </p>
+                <p>
+                  <br>
+                  <input type="submit" value="Submit Personal Information" id="Submit_Personal_Information_button">
+                </p>
+            </form>
+        </section>
+      </div>
+      <div id="desire_course_and_Subject_teacher_form_container">
+        <div class="header_form">
+            <h1>Choose the Course and Subject<br> you wish to attend</h1>
+        </div>
+        <section>
+            <form name="course_and_Subject_teacher" id="course_and_Subject_teacher" onsubmit="desire_course_and_Subject_teacher()">
+                <p>
+                  Available Subjects:<br>
+                  <select name="subject_teacher_select" id="subject_teacher_select" required>
+                  </select>
+                </p>
+                <p>
+                    Available Courses:<br>
+                    <select name="course_teacher_select" id="course_teacher_select" required>
+                    </select>
+                </p>
+                <p>
+                  <br>
+                  <input type="submit" value="Submit for this Subject and Course" id="teacher_submit_course_and_Subject_button">
+                </p>
+            </form>
+        </section>
+    </div>
+    <div id="Add_Asignment_form_container">
+      <div class="header_form">
+        <h1>Add an Assignment</h1>
+    </div>
+    <section>
+      <form name="add_assignment_teacher_form" id="add_assignment_teacher_form" onsubmit="add_assignment_teacher()">
+        <p>
+          Number:<br>
+          <input type="number" name="number" id="number" step=".01" placeholder="First number is for the course duplicate numbers not allowed" min="1" required>
+        </p>
+        <p>
+          Title<br>
+          <input type="text" name="title" id="title" placeholder="Input the title of the assignment here" required>
+        </p>
+        <p>
+          Description:<br>
+          <textarea name="Description" id="Description" cols="30" rows="5">Input your description for the assignment here</textarea>
+        </p>
+        <p>
+          Submision Deadline:<br>
+          <input type="datetime-local" name="Deadline" id="Deadline" required>
+        </p>
+        <p>
+          Oral Mark:<br>
+          <input type="number" name="Oral" id="Oral" max="100" min="0" placeholder="Oral and total must add up to 100" step="1" required>
+        </p>
+        <p>
+          Total Mark:<br>
+          <input type="number" name="Total" id="Total" max="100" min="0" placeholder="Oral and total must add up to 100" step="1" required>
+        </p>
+        <p>
+          Linked Course:<br>
+          <select name="course_teacher_select_assignment" id="course_teacher_select_assignment" required></select>
+        </p>
+        <p>
+          Linked Student:<br>
+          <select name="student_teacher_select_assignment" id="student_teacher_select_assignment" required></select>
+        </p>
+        <p>
+          <br>
+          <input type="submit" value="Add Assignment" id="add_assignment_button">
+        </p>
+      </form>
+    </section>
+    </div>
+    <div id="Edit_Asignment_form_container">
+      <div class="header_form">
+        <h1>Edit an Assignment</h1>
+    </div>
+    <section>
+      <form name="edit_assignment_teacher_form" id="edit_assignment_teacher_form" onsubmit="edit_assignment_teacher()">
+        <p>
+          Number:<br>
+          <input type="number" name="number_edit" id="number_edit" step=".01" placeholder="First number is for the course duplicate numbers not allowed" min="1" required>
+        </p>
+        <p>
+          Title<br>
+          <input type="text" name="title_edit" id="title_edit" placeholder="Input the title of the assignment here" required>
+        </p>
+        <p>
+          Description:<br>
+          <textarea name="Description_edit" id="Description_edit" cols="30" rows="5">Input your description for the assignment here</textarea>
+        </p>
+        <p>
+          Submision Deadline:<br>
+          <input type="datetime-local" name="Deadline_edit" id="Deadline_edit" required>
+        </p>
+        <p>
+          Oral Mark:<br>
+          <input type="number" name="Oral_edit" id="Oral_edit" max="100" min="0" placeholder="Oral and total must add up to 100" step="1" required>
+        </p>
+        <p>
+          Total Mark:<br>
+          <input type="number" name="Total_edit" id="Total_edit" max="100" min="0" placeholder="Oral and total must add up to 100" step="1" required>
+        </p>
+        <p>
+          Linked Course:<br>
+          <select name="course_teacher_select_assignment_edit" id="course_teacher_select_assignment_edit" required></select>
+        </p>
+        <p>
+          Linked Student:<br>
+          <select name="student_teacher_select_assignment_edit" id="student_teacher_select_assignment_edit" required></select>
+        </p>
+        <p>
+          <br>
+          <input type="submit" value="Edit this Assignment" id="edit_assignment_button">
+        </p>
+      </form>
+    </section>
+    </div>
+    <div id="Update_Asignment_form_container">
+      <div class="header_form">
+        <h1>Update an Assignment</h1>
+    </div>
+    <section>
+      <form name="update_assignment_teacher_form" id="update_assignment_teacher_form" onsubmit="update_assignment_teacher()">
+        <p>
+          Number:<br>
+          <input type="number" name="number_update" id="number_update" step=".01" placeholder="First number is for the course duplicate numbers not allowed" min="1" required>
+        </p>
+        <p>
+          Title<br>
+          <input type="text" name="title_update" id="title_update" placeholder="Input the title of the assignment here" required>
+        </p>
+        <p>
+          Description:<br>
+          <textarea name="Description_update" id="Description_update" cols="30" rows="5">Input your description for the assignment here</textarea>
+        </p>
+        <p>
+          Submision Deadline:<br>
+          <input type="datetime-local" name="Deadline_update" id="Deadline_update" required>
+        </p>
+        <p>
+          Oral Mark:<br>
+          <input type="number" name="Oral_update" id="Oral_update" max="100" min="0" placeholder="Oral and total must add up to 100" step="1" required>
+        </p>
+        <p>
+          Total Mark:<br>
+          <input type="number" name="Total_update" id="Total_update" max="100" min="0" placeholder="Oral and total must add up to 100" step="1" required>
+        </p>
+        <p>
+          Linked Course:<br>
+          <select name="course_teacher_select_assignment_update" id="course_teacher_select_assignment_update" required></select>
+        </p>
+        <p>
+          Linked Student:<br>
+          <select name="student_teacher_select_assignment_update" id="student_teacher_select_assignment_update" required></select>
+        </p>
+        <p>
+          <br>
+          <input type="submit" value="Update this Assignment" id="update_assignment_button">
+        </p>
+      </form>
+    </section>
+    </div>
+    </div>
+  <script src="../../JS/courses_script_and_data.js"></script>
+  <script src="../../JS/teacher_script_and_data.js"></script>
+  <script src="../../JS/students_script_and_data.js"></script>
+  <script src="../../JS/assignments_script_and_data.js"></script>
+</body>
+</html>

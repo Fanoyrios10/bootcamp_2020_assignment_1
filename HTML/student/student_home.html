@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/style_student_home.css">
+    <title>Student Home</title>
+    <link rel="shortcut icon" href="../../Images/Webpage_Icons/Private_School.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <img src="../../Images/Welcome_Page/school_logo.png" alt="school_logo">
+        <h1>GREENWOOD PRIVATE SCHOOL</h1>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="../../index.html"> Home</a></li>
+            <li class="dropdownContainer">About Us
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Our Mission and Vision</a></li>
+                    <li><a href="../under_construction.html">Key Facts and School information</a></li>
+                    <li><a href="../under_construction.html">Our History</a></li>
+                    <li><a href="../under_construction.html">Board of Trustees</a></li>
+                    <li><a href="../under_construction.html">Testimonials</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Student Life
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">After School Program</a></li>
+                    <li><a href="../under_construction.html">Athletics</a></li>
+                    <li><a href="../under_construction.html">Commitment to Service and Social Justice</a></li>
+                    <li><a href="../under_construction.html">Electronics</a></li>
+                    <li><a href="../under_construction.html">Enrichment Opportunities</a></li>
+                    <li><a href="../under_construction.html">Lunch Program</a></li>
+                    <li><a href="../under_construction.html">News</a></li>
+                    <li><a href="../under_construction.html">School Calendar</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Academics
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Special Subjects</a></li>
+                    <li><a href="../under_construction.html">Special Academic Opportunities</a></li>
+                    <li><a href="../under_construction.html">Enrichment Opportunities</a></li>
+                    <li><a href="../under_construction.html">Place Based Education</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Admissions
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Choose Us!</a></li>
+                    <li><a href="../under_construction.html">Appliccation information</a></li>
+                    <li><a href="../under_construction.html">Application Process</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Get Involved
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Fundraising</a></li>
+                    <li><a href="../under_construction.html">Home and School Organization</a></li>
+                    <li><a href="../under_construction.html">How to Get Involved</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Helpful Info
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">FAQ</a></li>
+                    <li><a href="../under_construction.html">Forms</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Contact Us
+                <ul class="dropdownList">
+                    <li><a href="../under_construction.html">Contact information</a></li>
+                    <li><a href="../under_construction.html">Staff Directory</a></li>
+                </ul>
+            </li>
+            <li class="dropdownContainer">Sign Up/Sign In
+                <ul class="dropdownList">
+                    <li><a href="../Sign_up/Sign_Up.html">Sign Up</a></li>
+                    <li><a href="../Sign_in/Sign_In.html">Sign In</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="Intro_Stripe">
+        <h1 id="stripe_header">From here you can view and edit some of your personal information and choose the course you wish to attend. If you wish to change something that is not in this form you will have to contact the secreatry.</h1>
+    </div>
+    <div class="Main_Container">
+    <br>
+    <table id="table_student_home" name="table_student_home">
+      <tr>
+        <th colspan="2">Personal Information</th>
+      </tr>
+      <tr>
+        <td>Number</td>
+        <td id="table_student_home_number"></td>
+      </tr>
+      <tr>
+        <td>First Name</td>
+        <td id="table_student_home_first_name"></td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td id="table_student_home_last_name"></td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td id="table_student_home_date_of_Birth"></td>
+      </tr>
+      <tr>
+        <td>Tutition Fees</td>
+        <td id="table_student_home_tutition_fees"></td>
+      </tr>
+      <tr>
+        <td>E-mail</td>
+        <td id="table_student_home_email"></td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td id="table_student_home_password"></td>
+      </tr>
+      <tr>
+        <td>Subject</td>
+        <td id="table_student_home_subject"></td>
+      </tr>
+      <tr>
+        <td>Course</td>
+        <td id="table_student_home_course"></td>
+      </tr>
+      <tr>
+        <td>Assignment</td>
+        <td id="table_student_home_assignment"></td>
+      </tr>
+      <tr>
+        <td>Desired Course</td>
+        <td id="table_student_home_desired_course"></td>
+      </tr>
+    </table>
+      <button class="button_not_in_a_form" onclick="student_edit_personal_information_form()" id="Edit_my_personal_Information_button">Edit my personal Information Show Form</button>
+      <button class="button_not_in_a_form" onclick="student_choose_desired_course()" id="student_choose_a_course_button">Choose a course I wish to attend Show Form</button>
+      <button onclick="student_sign_out()" class="button_not_in_a_form">Sign Out</button>
+      <br>
+      <div id="edit_personal_student_form_container">
+        <div class="header_form">
+            <h1>Edit Personal Information Form</h1>
+        </div>
+        <section>
+            <form name="edit_personal_student_form" id="edit_personal_student_form" onsubmit="edit_personal_student()">
+                <p>
+                    First Name:<br>
+                    <input type="text" name="first_name" id="first_name" placeholder="Input your First Name here" required>
+                </p>
+                <p>
+                    Last Name:<br>
+                    <input type="text" name="last_name" id="last_name" placeholder="Input your Last Name here" required>
+                </p>
+                <p>
+                    Date of Birth:<br>
+                    <input type="date" name="Date_Of_Birth" id="Date_Of_Birth" min="1996-01-01" max="2002-12-31" required>
+                </p>
+                <p>
+                    E-mail:<br>
+                    <input type="email" name="e-mail" id="e-mail" placeholder="Input your E-mail here" required>
+                </p>
+                <p>
+                    Password:<br>
+                    <input type="password" name="password" id="password" minlength="4" placeholder="Minimum 4 characters" required>
+                </p>
+                <p>
+                  <br>
+                  <input type="submit" value="Submit Personal Information" id="Submit_Personal_Information_button">
+                </p>
+            </form>
+        </section>
+      </div>
+      <div id="course_student_form_container">
+        <div class="header_form">
+            <h1>Choose the Course <br> you wish to attend</h1>
+        </div>
+        <section>
+            <form name="course_student_form" id="course_student_form" onsubmit="course_personal_student()">
+                <p>
+                    Available Courses:<br>
+                    <select name="course_student_select" id="course_student_select" required>
+                    </select>
+                </p>
+                <p>
+                  <br>
+                  <input type="submit" value="Submit for this Course" id="student_submit_course_button">
+                </p>
+            </form>
+        </section>
+    </div>
+    <script src="../../JS/courses_script_and_data.js"></script>
+    <script src="../../JS/students_script_and_data.js"></script>
+</body>
+</html>

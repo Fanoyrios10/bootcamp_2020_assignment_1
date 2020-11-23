@@ -1,3 +1,5 @@
+// The position inside the arrays correspond with one another. For examle course_title[1] goes with course_stream[1]
+
 let course_number = [0,1.1,1.2,1.3,2.1,2.2,2.3,3.1,3.2,3.3,4.1,4.2,4.3,5.1,5.2,5.3,6.1,6.2,6.3];
 
 let course_title = ["demo","Ancient History","Medieval History","Reinasance History","JavaScript Programming", "C# Programming","Python Programming","Organic Chemistry","Atmospheric Chemistry","Food Chemistry","Solid State Physics","Biological Physics","Computational Physics","Classical Sociological Theory","Democracy Governance and anticipation","Introducing the Social Sciences","Fitness Through Movement","Elementary Physical Education","Introduction to Sport Management"];
@@ -36,11 +38,11 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can add
     if (sessionStorage.getItem('test3') == null) {
       for (let i = 1; i < course_number_old.length; i++) {
         let trc = document.createElement("tr");
-        var tdOne = document.createElement("td");
+        let tdOne = document.createElement("td");
         tdOne.innerHTML = course_number_old[i];
-        var tdTwo = document.createElement("td");
+        let tdTwo = document.createElement("td");
         tdTwo.innerHTML = course_title_old[i];
-        var tdThree = document.createElement("td");
+        let tdThree = document.createElement("td");
         tdThree.innerHTML = course_stream_old[i];
         let tdFour = document.createElement("td");
         tdFour.innerHTML = course_type_old[i];
@@ -382,7 +384,6 @@ function secretary_add_course_form_appear() {
 if (document.getElementById("stripe_header").innerHTML == "From here you can add, edit and update courses.") {
   let oneYearLater = new Date();
   let sixMonthsLater = new Date();
-  console.log(sixMonthsLater);
   oneYearLater.setFullYear(oneYearLater.getFullYear() + 1);
   sixMonthsLater.setMonth(sixMonthsLater.getMonth() + 6);
   secretary_create_a_course_start_day.min = new Date().toISOString().split("T")[0];
@@ -442,7 +443,6 @@ function Add_Course() {
   }
   let new_course = [Add_number,Add_title,Add_Stream,Add_Type,Add_start_date,Add_end_date];
   sessionStorage.setItem('test3', 1);
-  console.log(new_course);
   return new_course;
 }
 
@@ -457,31 +457,19 @@ function sortCourseTable() {
   var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("myTable");
   switching = true;
-  /*Make a loop that will continue until
-  no switching has been done:*/
   while (switching) {
-    //start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
     for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
       shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
       x = rows[i].getElementsByTagName("TD")[0];
       y = rows[i + 1].getElementsByTagName("TD")[0];
-      //check if the two rows should switch place:
       if (Number(x.innerHTML) > Number(y.innerHTML)) {
-        //if so, mark as a switch and break the loop:
         shouldSwitch = true;
         break;
       }
     }
     if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
     }
