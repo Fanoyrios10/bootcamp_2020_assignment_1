@@ -3,3 +3,6 @@
 Διστυχώς δεν έχω προλάβει να βάλω σχόλια.
 Για αποθηκευση δεδομενων χρησιμοποιω sessionStorage που σημαινει το οτι γίνεται μένει στην καρτέλα.
 Με το που την κλήσεις ολα γινονται reset.
+Εγω θα το συνεχισω στο Github.
+Github:https://github.com/Fanoyrios10/bootcamp_2020_assignment_1
+Github Pages:https://fanoyrios10.github.io/bootcamp_2020_assignment_1/
