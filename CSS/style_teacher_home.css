@@ -225,14 +225,6 @@ tr:not(:hover):nth-child(even){
   width: 23%;
 }
 
-#edit_personal_teacher_form_container{
-  background-color: rgba(192, 192, 192, 0.5);
-  width: 30%;
-  height: 80%;
-  border-radius: 25px;
-  margin: 50px auto;
-  display: none;
-}
 
 .header_form{
   width: 100%;
@@ -270,7 +262,7 @@ input{
 #edit_personal_teacher_form_container{
   background-color: rgba(192, 192, 192, 0.5);
   width: 30%;
-  height: 500px;
+  height: 800px;
   border-radius: 25px;
   margin: 50px auto;
   display: none;

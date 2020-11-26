@@ -11,7 +11,7 @@ let students_date_of_birth_l = [new Date(90, 1, 1),new Date(96, 0, 2),new Date(9
 
 let students_date_of_birth = students_date_of_birth_l.map(d => d.toDateString());
 
-let students_tutitions_fees = ["Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€","Online:2000€","Full time:3000€","Part Time:2500€"];
+let students_tutitions_fees = ["Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€","Online:2000€","Full time:3000€","Part time:2500€"];
 
 let students_emails = ["demostudent@outlook.com","jusdisgi@msn.com","flakeg@mac.com","akoblin@me.com","gator@live.com","tokuhirom@gmail.com","ramollin@icloud.com","scarolan@yahoo.ca","geekoid@aol.com","vlefevre@comcast.net","corrada@yahoo.com","padme@yahoo.com","mavilar@outlook.com","chlim@msn.com","frikazoyd@live.com","naupa@sbcglobal.net","howler@icloud.com","kayvonf@att.net","scato@yahoo.com","aibrahim@outlook.com","payned@hotmail.com","matloff@me.com","purvis@msn.com","dwheeler@yahoo.com","euice@att.net","richard@aol.com","jnolan@aol.com","tmaek@att.net","frode@icloud.com","wbarker@live.com","evilopie@live.com","gboss@yahoo.com","nelson@live.com","library@gmail.com","agapow@verizon.net","killerinstinct@outlook.com","kassiesa@comcast.net","sumdumass@optonline.net","mpiotr@msn.com","mmccool@msn.com","themer@yahoo.ca"];
 
@@ -52,6 +52,19 @@ let students_courses_old = JSON.parse(window.sessionStorage.getItem("students_co
 let students_assignments_old = JSON.parse(window.sessionStorage.getItem("students_assignments_old"));
 let students_courses_desires_old = JSON.parse(window.sessionStorage.getItem("students_courses_desires_old"));
 
+if (sessionStorage.getItem('test2') == null) {
+  sessionStorage.setItem("students_number_new",JSON.stringify(students_number_old));
+  sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_old));
+  sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_old));
+  sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_old));
+  sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_old));
+  sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_old));
+  sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_old));
+  sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_old));
+  sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_old));
+  sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_old));
+  sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_old));
+}
 
 function sign_up() {
   let sign_up_completion = document.getElementById("sign_up_complete");
@@ -139,6 +152,7 @@ function sign_up() {
       sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_new));
     }
     sign_up_completion.style.display = "block";
+    window.alert("Thank you very much for signing up to our school " + sign_up_first_name + "!!!. Go to sign in and enter your account so you can choose your desired course.");
     let new_student = [x,sign_up_first_name,sign_up_last_name,sign_up_e_mail,sign_up_password,sign_up_subject,sign_up_date_of_birth,sign_up_tutition_fees];
     sessionStorage.setItem('test2', 1);
     setTimeout(function (){sign_up_completion.innerText = "Please wait."}, 1000);
@@ -178,7 +192,7 @@ function sign_in() {
     for (let i = 0; i <= students_number_old.length; i++) {
       if (email_sign_in == students_emails_old[i] || password_sign_in == passwords_students_old[i]) {
         console.log(i);
-        window.alert("Welcome back " + students_first_name[i] + "!!!");
+        window.alert("Welcome back " + students_first_name_old[i] + "!!!");
         let student_sign_in_id = students_number_old[i];
         sessionStorage.setItem("student_sign_in_id",JSON.stringify(student_sign_in_id));
         setTimeout (function (){location.href = "../student/student_home.html"}, 1000);
@@ -191,7 +205,7 @@ function sign_in() {
     for (let i = 0; i <= students_number_new.length; i++) {
       if (email_sign_in == students_emails_new[i] || password_sign_in == passwords_students_new[i]) {
         console.log(i);
-        window.alert("Welcome back " + students_first_name[i] + "!!!");
+        window.alert("Welcome back " + students_first_name_new[i] + "!!!");
         let student_sign_in_id = students_number_new[i];
         sessionStorage.setItem("student_sign_in_id",JSON.stringify(student_sign_in_id));
         setTimeout (function (){location.href = "../student/student_home.html"}, 1000);
@@ -248,8 +262,10 @@ function student_sign_out() {
   location.href = "../Sign_in/Sign_In_Student.html";
 }
 
+let secretary_course_list_edit;
+let secretary_course_list_update;
 
-if (document.getElementById("stripe_header").innerHTML == "From here you can edit and update students.") {
+if (document.getElementById("stripe_header").innerHTML == "From here you can edit and update students. Click on the edit or update button next to a student and a form will pop up at the bottom of the webpage with his information pre-filled. Use the buttons just below so you can hide the forms and sort the table.") {
   window.onload = () => {
   if (sessionStorage.getItem('test2') == null) {
     for (let i = 1; i < students_number_old.length; i++) {
@@ -266,8 +282,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
         tdFive.innerHTML = students_date_of_birth_old[i];
         let tdSix = document.createElement("td");
         tdSix.innerHTML = students_tutitions_fees_old[i];
-        let tdSeven = document.createElement("td");
-        tdSeven.innerHTML = passwords_students_old[i];
         let tdEight = document.createElement("td");
         tdEight.innerHTML = subjects_students_old[i];
         let tdNine = document.createElement("td");
@@ -292,7 +306,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
         trc.appendChild(tdFour);
         trc.appendChild(tdFive);
         trc.appendChild(tdSix);
-        trc.appendChild(tdSeven);
         trc.appendChild(tdEight);
         trc.appendChild(tdNine);
         trc.appendChild(tdTen);
@@ -304,19 +317,23 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
           for (let x = 0; x <students_number_old.length; x++) {
             if (Edit_Button.id == "Edit_Student_button" + x) {
               document.getElementById("secretary_edit_student_form_container").style.display = "block";
-              if (sessionStorage.getItem('test3') == null) {
-                for (let i = 1; i < course_title_old.length; i++) {
-                  let secretary_course_list_student = document.createElement("option");
-                  secretary_course_list_student.innerHTML = course_title_old[i];
-                  secretary_course_list_student.name = course_title_old[i];
-                  document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
-                }
-              }else{
-                for (let i = 1; i < course_title_new.length; i++) {
-                  let secretary_course_list_student = document.createElement("option");
-                  secretary_course_list_student.innerHTML = course_title_new[i];
-                  secretary_course_list_student.name = course_title_new[i];
-                  document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
+              if (secretary_course_list_edit == null) {
+                if (sessionStorage.getItem('test3') == null) {
+                  for (let i = 1; i < course_title_old.length; i++) {
+                    let secretary_course_list_student = document.createElement("option");
+                    secretary_course_list_student.innerHTML = course_title_old[i];
+                    secretary_course_list_student.name = course_title_old[i];
+                    secretary_course_list_edit = true;
+                    document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
+                  }
+                }else{
+                  for (let i = 1; i < course_title_new.length; i++) {
+                    let secretary_course_list_student = document.createElement("option");
+                    secretary_course_list_student.innerHTML = course_title_new[i];
+                    secretary_course_list_student.name = course_title_new[i];
+                    secretary_course_list_edit = true;
+                    document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
+                  }
                 }
               }
               document.forms["secretary_edit_student_form"]["first_name_edit"].value = students_first_name_old[x];
@@ -324,7 +341,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
               document.forms["secretary_edit_student_form"]["e-mail_edit"].value = students_emails_old[x];
               document.forms["secretary_edit_student_form"]["Date_Of_Birth_edit"].value = students_date_of_birth_old[x];
               document.forms["secretary_edit_student_form"]["Tutition_fees_edit"].value = students_tutitions_fees_old[x];
-              document.forms["secretary_edit_student_form"]["password_edit"].value = passwords_students_old[x];
               document.forms["secretary_edit_student_form"]["subject_edit"].value = subjects_students_old[x];
               document.forms["secretary_edit_student_form"]["secretary_Course_student_edit"].value = students_courses_old[x];
               var edit_student_position = x;
@@ -335,21 +351,25 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
         })
         Update_Button.addEventListener("click",function () {
           for (let x = 0; x <students_number_old.length; x++) {
-            if (Edit_Button.id == "Update_Student_button" + x) {
+            if (Update_Button.id == "Update_Student_button" + x) {
               document.getElementById("secretary_update_student_form_container").style.display = "block";
-              if (sessionStorage.getItem('test3') == null) {
-                for (let i = 1; i < course_title_old.length; i++) {
-                  let secretary_course_list_student = document.createElement("option");
-                  secretary_course_list_student.innerHTML = course_title_old[i];
-                  secretary_course_list_student.name = course_title_old[i];
-                  document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
-                }
-              }else{
-                for (let i = 1; i < course_title_new.length; i++) {
-                  let secretary_course_list_student = document.createElement("option");
-                  secretary_course_list_student.innerHTML = course_title_new[i];
-                  secretary_course_list_student.name = course_title_new[i];
-                  document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
+              if (secretary_course_list_update == null) {
+                if (sessionStorage.getItem('test3') == null) {
+                  for (let i = 1; i < course_title_old.length; i++) {
+                    let secretary_course_list_student = document.createElement("option");
+                    secretary_course_list_student.innerHTML = course_title_old[i];
+                    secretary_course_list_student.name = course_title_old[i];
+                    secretary_course_list_update = true;
+                    document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
+                  }
+                }else{
+                  for (let i = 1; i < course_title_new.length; i++) {
+                    let secretary_course_list_student = document.createElement("option");
+                    secretary_course_list_student.innerHTML = course_title_new[i];
+                    secretary_course_list_student.name = course_title_new[i];
+                    secretary_course_list_update = true;
+                    document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
+                  }
                 }
               }
               document.forms["secretary_update_student_form"]["first_name_update"].value = students_first_name_old[x];
@@ -357,7 +377,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
               document.forms["secretary_update_student_form"]["e-mail_update"].value = students_emails_old[x];
               document.forms["secretary_update_student_form"]["Date_Of_Birth_update"].value = students_date_of_birth_old[x];
               document.forms["secretary_update_student_form"]["Tutition_fees_update"].value = students_tutitions_fees_old[x];
-              document.forms["secretary_update_student_form"]["password_update"].value = passwords_students_old[x];
               document.forms["secretary_update_student_form"]["subject_update"].value = subjects_students_old[x];
               document.forms["secretary_update_student_form"]["secretary_Course_student_update"].value = students_courses_old[x];
               var update_student_position = x;
@@ -382,8 +401,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
       tdFive.innerHTML = students_date_of_birth_new[i];
       let tdSix = document.createElement("td");
       tdSix.innerHTML = students_tutitions_fees_new[i];
-      let tdSeven = document.createElement("td");
-      tdSeven.innerHTML = passwords_students_new[i];
       let tdEight = document.createElement("td");
       tdEight.innerHTML = subjects_students_new[i];
       let tdNine = document.createElement("td");
@@ -408,7 +425,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
       trc.appendChild(tdFour);
       trc.appendChild(tdFive);
       trc.appendChild(tdSix);
-      trc.appendChild(tdSeven);
       trc.appendChild(tdEight);
       trc.appendChild(tdNine);
       trc.appendChild(tdTen);
@@ -420,19 +436,23 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
         for (let x = 0; x <students_number_new.length; x++) {
           if (Edit_Button.id == "Edit_Student_button" + x) {
             document.getElementById("secretary_edit_student_form_container").style.display = "block";
-            if (sessionStorage.getItem('test3') == null) {
-              for (let i = 1; i < course_title_new.length; i++) {
-                let secretary_course_list_student = document.createElement("option");
-                secretary_course_list_student.innerHTML = course_title_new[i];
-                secretary_course_list_student.name = course_title_new[i];
-                document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
-              }
-            }else{
-              for (let i = 1; i < course_title_new.length; i++) {
-                let secretary_course_list_student = document.createElement("option");
-                secretary_course_list_student.innerHTML = course_title_new[i];
-                secretary_course_list_student.name = course_title_new[i];
-                document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
+            if (secretary_course_list_edit == null) {
+              if (sessionStorage.getItem('test3') == null) {
+                for (let i = 1; i < course_title_new.length; i++) {
+                  let secretary_course_list_student = document.createElement("option");
+                  secretary_course_list_student.innerHTML = course_title_new[i];
+                  secretary_course_list_student.name = course_title_new[i];
+                  secretary_course_list_edit = true;
+                  document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
+                }
+              }else{
+                for (let i = 1; i < course_title_new.length; i++) {
+                  let secretary_course_list_student = document.createElement("option");
+                  secretary_course_list_student.innerHTML = course_title_new[i];
+                  secretary_course_list_student.name = course_title_new[i];
+                  secretary_course_list_edit = true;
+                  document.getElementById("secretary_Course_student_edit").appendChild(secretary_course_list_student);
+                }
               }
             }
             document.forms["secretary_edit_student_form"]["first_name_edit"].value = students_first_name_new[x];
@@ -440,7 +460,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
             document.forms["secretary_edit_student_form"]["e-mail_edit"].value = students_emails_new[x];
             document.forms["secretary_edit_student_form"]["Date_Of_Birth_edit"].value = students_date_of_birth_new[x];
             document.forms["secretary_edit_student_form"]["Tutition_fees_edit"].value = students_tutitions_fees_new[x];
-            document.forms["secretary_edit_student_form"]["password_edit"].value = passwords_students_new[x];
             document.forms["secretary_edit_student_form"]["subject_edit"].value = subjects_students_new[x];
             document.forms["secretary_edit_student_form"]["secretary_Course_student_edit"].value = students_courses_new[x];
             var edit_student_position = x;
@@ -451,21 +470,25 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
       })
       Update_Button.addEventListener("click",function () {
         for (let x = 0; x <students_number_new.length; x++) {
-          if (Edit_Button.id == "Update_Student_button" + x) {
+          if (Update_Button.id == "Update_Student_button" + x) {
             document.getElementById("secretary_update_student_form_container").style.display = "block";
-            if (sessionStorage.getItem('test3') == null) {
-              for (let i = 1; i < course_title_new.length; i++) {
-                let secretary_course_list_student = document.createElement("option");
-                secretary_course_list_student.innerHTML = course_title_new[i];
-                secretary_course_list_student.name = course_title_new[i];
-                document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
-              }
-            }else{
-              for (let i = 1; i < course_title_new.length; i++) {
-                let secretary_course_list_student = document.createElement("option");
-                secretary_course_list_student.innerHTML = course_title_new[i];
-                secretary_course_list_student.name = course_title_new[i];
-                document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
+            if (secretary_course_list_update == null) {
+              if (sessionStorage.getItem('test3') == null) {
+                for (let i = 1; i < course_title_new.length; i++) {
+                  let secretary_course_list_student = document.createElement("option");
+                  secretary_course_list_student.innerHTML = course_title_new[i];
+                  secretary_course_list_student.name = course_title_new[i];
+                  secretary_course_list_update = true;
+                  document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
+                }
+              }else{
+                for (let i = 1; i < course_title_new.length; i++) {
+                  let secretary_course_list_student = document.createElement("option");
+                  secretary_course_list_student.innerHTML = course_title_new[i];
+                  secretary_course_list_student.name = course_title_new[i];
+                  secretary_course_list_update = true;
+                  document.getElementById("secretary_Course_student_update").appendChild(secretary_course_list_student);
+                }
               }
             }
             document.forms["secretary_update_student_form"]["first_name_update"].value = students_first_name_new[x];
@@ -473,7 +496,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can edi
             document.forms["secretary_update_student_form"]["e-mail_update"].value = students_emails_new[x];
             document.forms["secretary_update_student_form"]["Date_Of_Birth_update"].value = students_date_of_birth_new[x];
             document.forms["secretary_update_student_form"]["Tutition_fees_update"].value = students_tutitions_fees_new[x];
-            document.forms["secretary_update_student_form"]["password_update"].value = passwords_students_new[x];
             document.forms["secretary_update_student_form"]["subject_update"].value = subjects_students_new[x];
             document.forms["secretary_update_student_form"]["secretary_Course_student_update"].value = students_courses_new[x];
             var update_student_position = x;
@@ -666,3 +688,212 @@ function course_personal_student() {
   sessionStorage.setItem('test2', 1);
   return true;
 }
+
+function secretary_edit_student() {
+  let edit_student_position = JSON.parse(window.sessionStorage.getItem("edit_student_position"));
+  let first_name = document.forms["secretary_edit_student_form"]["first_name_edit"].value;
+  let last_name = document.forms["secretary_edit_student_form"]["last_name_edit"].value;
+  let birthday = document.forms["secretary_edit_student_form"]["Date_Of_Birth_edit"].value;
+  let email = document.forms["secretary_edit_student_form"]["e-mail_edit"].value;
+  let fees = document.forms["secretary_edit_student_form"]["Tutition_fees_edit"].value;
+  let subject = document.forms["secretary_edit_student_form"]["subject_edit"].value;
+  let course = document.forms["secretary_edit_student_form"]["secretary_Course_student_edit"].value;
+  if (sessionStorage.getItem('test2') == null) {
+   delete students_first_name_old[edit_student_position];
+   delete students_last_name_old[edit_student_position];
+   delete students_emails_old[edit_student_position];
+   delete students_date_of_birth_old[edit_student_position];
+   delete students_tutitions_fees_old[edit_student_position];
+   delete subjects_students_old[edit_student_position];
+   delete students_courses_old[edit_student_position];
+   delete students_courses_desires_old[edit_student_position];
+  }else{
+    delete students_first_name_new[edit_student_position];
+    delete students_last_name_new[edit_student_position];
+    delete students_emails_new[edit_student_position];
+    delete students_date_of_birth_new[edit_student_position];
+    delete students_tutitions_fees_new[edit_student_position];
+    delete subjects_students_new[edit_student_position];
+    delete students_courses_new[edit_student_position];
+    delete students_courses_desires_new[edit_student_position];
+  }
+  if (sessionStorage.getItem('test2') == null) {
+    for (let i = 1; i <= students_number_old.length; i++) {
+      if (students_emails_old[i] == email) {
+        window.alert("E-mail already exists!!!");
+        return false;
+      }
+    }
+  }else{
+    for (let i = 1; i <= students_number_new.length; i++) {
+      if (students_emails_new[i] == email) {
+        window.alert("E-mail already exists!!!");
+        return false;
+      }
+    }
+  }
+  if (sessionStorage.getItem('test2') == null) {
+    students_first_name_old.splice(edit_student_position,1,first_name);
+    students_last_name_old.splice(edit_student_position,1,last_name);
+    students_date_of_birth_old.splice(edit_student_position,1,birthday);
+    students_emails_old.splice(edit_student_position,1,email);
+    students_tutitions_fees_old.splice(edit_student_position,1,fees);
+    subjects_students_old.splice(edit_student_position,1,subject);
+    students_courses_old.splice(edit_student_position,1,course);
+    sessionStorage.setItem("students_number_new",JSON.stringify(students_number_old));
+    sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_old));
+    sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_old));
+    sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_old));
+    sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_old));
+    sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_old));
+    sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_old));
+    sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_old));
+    sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_old));
+    sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_old));
+    sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_old));
+  }else{
+    students_first_name_new.splice(edit_student_position,1,first_name);
+    students_last_name_new.splice(edit_student_position,1,last_name);
+    students_date_of_birth_new.splice(edit_student_position,1,birthday);
+    students_emails_new.splice(edit_student_position,1,email);
+    students_tutitions_fees_new.splice(edit_student_position,1,fees);
+    subjects_students_new.splice(edit_student_position,1,subject);
+    students_courses_new.splice(edit_student_position,1,course);
+    sessionStorage.setItem("students_number_new",JSON.stringify(students_number_new));
+    sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_new));
+    sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_new));
+    sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_new));
+    sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_new));
+    sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_new));
+    sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_new));
+    sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_new));
+    sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_new));
+    sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_new));
+    sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_new));
+  }
+  sessionStorage.setItem('test2', 1);
+  return true;
+}
+
+function secretary_update_student() {
+  let update_student_position = JSON.parse(window.sessionStorage.getItem("update_student_position"));
+  let first_name = document.forms["secretary_update_student_form"]["first_name_update"].value;
+  let last_name = document.forms["secretary_update_student_form"]["last_name_update"].value;
+  let birthday = document.forms["secretary_update_student_form"]["Date_Of_Birth_update"].value;
+  let email = document.forms["secretary_update_student_form"]["e-mail_update"].value;
+  let fees = document.forms["secretary_update_student_form"]["Tutition_fees_update"].value;
+  let subject = document.forms["secretary_update_student_form"]["subject_update"].value;
+  let course = document.forms["secretary_update_student_form"]["secretary_Course_student_update"].value;
+  if (sessionStorage.getItem('test2') == null) {
+   delete students_first_name_old[update_student_position];
+   delete students_last_name_old[update_student_position];
+   delete students_emails_old[update_student_position];
+   delete students_date_of_birth_old[update_student_position];
+   delete students_tutitions_fees_old[update_student_position];
+   delete subjects_students_old[update_student_position];
+   delete students_courses_old[update_student_position];
+   delete students_courses_desires_old[update_student_position];
+  }else{
+    delete students_first_name_new[update_student_position];
+    delete students_last_name_new[update_student_position];
+    delete students_emails_new[update_student_position];
+    delete students_date_of_birth_new[update_student_position];
+    delete students_tutitions_fees_new[update_student_position];
+    delete subjects_students_new[update_student_position];
+    delete students_courses_new[update_student_position];
+    delete students_courses_desires_new[update_student_position];
+  }
+  if (sessionStorage.getItem('test2') == null) {
+    for (let i = 1; i <= students_number_old.length; i++) {
+      if (students_emails_old[i] == email) {
+        window.alert("E-mail already exists!!!");
+        return false;
+      }
+    }
+  }else{
+    for (let i = 1; i <= students_number_new.length; i++) {
+      if (students_emails_new[i] == email) {
+        window.alert("E-mail already exists!!!");
+        return false;
+      }
+    }
+  }
+  if (sessionStorage.getItem('test2') == null) {
+    students_first_name_old.splice(update_student_position,1,first_name);
+    students_last_name_old.splice(update_student_position,1,last_name);
+    students_date_of_birth_old.splice(update_student_position,1,birthday);
+    students_emails_old.splice(update_student_position,1,email);
+    students_tutitions_fees_old.splice(update_student_position,1,fees);
+    subjects_students_old.splice(update_student_position,1,subject);
+    students_courses_old.splice(update_student_position,1,course);
+    sessionStorage.setItem("students_number_new",JSON.stringify(students_number_old));
+    sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_old));
+    sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_old));
+    sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_old));
+    sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_old));
+    sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_old));
+    sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_old));
+    sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_old));
+    sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_old));
+    sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_old));
+    sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_old));
+  }else{
+    students_first_name_new.splice(update_student_position,1,first_name);
+    students_last_name_new.splice(update_student_position,1,last_name);
+    students_date_of_birth_new.splice(update_student_position,1,birthday);
+    students_emails_new.splice(update_student_position,1,email);
+    students_tutitions_fees_new.splice(update_student_position,1,fees);
+    subjects_students_new.splice(update_student_position,1,subject);
+    students_courses_new.splice(update_student_position,1,course);
+    sessionStorage.setItem("students_number_new",JSON.stringify(students_number_new));
+    sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_new));
+    sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_new));
+    sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_new));
+    sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_new));
+    sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_new));
+    sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_new));
+    sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_new));
+    sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_new));
+    sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_new));
+    sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_new));
+  }
+  sessionStorage.setItem('test2', 1);
+  return true;
+}
+
+function sortStudentTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("secretary_students_table");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+      if (Number(x.innerHTML) > Number(y.innerHTML)) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+function studentSecretaryHideEditForm() {
+  document.getElementById("secretary_edit_student_form_container").style.display = "none";
+}
+
+function studentSecretaryHideUpdateForm() {
+  document.getElementById("secretary_update_student_form_container").style.display = "none";
+}
+
+function goBack() {
+  location.href = "secretary_home.html";
+}
+
+

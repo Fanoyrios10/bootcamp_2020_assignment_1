@@ -35,6 +35,17 @@ assignments_total_mark_old = JSON.parse(window.sessionStorage.getItem("assignmen
 assignments_course_link_old = JSON.parse(window.sessionStorage.getItem("assignments_course_link_old"));
 assignments_student_name_assigned_old = JSON.parse(window.sessionStorage.getItem("assignments_student_name_assigned_old"));
 
+if (sessionStorage.getItem('test4') == null) {
+  sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
+  sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
+  sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
+  sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
+  sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
+  sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
+  sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
+  sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
+}
+
 assignments_number_new = JSON.parse(window.sessionStorage.getItem("assignments_number_new"));
 assignments_title_new = JSON.parse(window.sessionStorage.getItem("assignments_title_new"));
 assignments_description_new = JSON.parse(window.sessionStorage.getItem("assignments_description_new"));
@@ -643,3 +654,6 @@ function update_assignment_teacher() {
   return true;
 }
 
+function goBack() {
+  location.href = "secretary_home.html";
+}

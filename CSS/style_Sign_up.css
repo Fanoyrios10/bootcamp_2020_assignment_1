@@ -131,11 +131,11 @@
 }
 
 .left{
-  width: 50%;
+  width: 49.5%;
   float: left;
   height: 100%;
   border-right: 1px solid gold;
-  background-image: url(../Images/Sign_Up/Student.jpg);
+  background-image: url(../Images/Sign_Up/Student2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -143,10 +143,10 @@
 }
 
 .right{
-  width: 49.9%;
+  width: 49.4%;
   height: 100%;
   float: left;
-  background-image: url(../Images/Sign_Up/Teacher.jpg);
+  background-image: url(../Images/Sign_Up/Teacher2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -176,8 +176,8 @@
   appearance: button;
   position: absolute;
   top: 44%;
-  font-size: 70px;
-  left: 38%;
+  font-size: 60px;
+  left: 18%;
   opacity: 0.6;
 }
 

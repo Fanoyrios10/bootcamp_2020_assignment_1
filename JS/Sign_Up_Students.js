@@ -22,7 +22,7 @@ function change_background() {
       background.style.backgroundImage = "url(../../Images/Classes/Sociology_Classs.jpg)";
       background.style.transition = "2.5s";
       break;
-    case "Physical_Education":
+    case "Physical Education":
       background.style.backgroundImage = "url(../../Images/Classes/phiscal_education_class.jpg)";
       background.style.transition = "2.5s";
       break;

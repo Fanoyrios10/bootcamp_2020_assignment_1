@@ -4,6 +4,10 @@
   font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
+main{
+  background-color: tomato;
+}
+
 .header{
   background-color: rgb(236, 28, 36);
   width: 100%;
@@ -127,16 +131,16 @@
 .Image_Container{
   width: 100%;
   background-color: tomato;
-  height: 900px;
+  height: 500px;
   border-bottom: 2px solid gold;
 }
 
 .left{
-  width: 50%;
+  width: 49.5%;
   float: left;
   height: 100%;
   border-right: 1px solid gold;
-  background-image: url(../Images/Sign_in/Student.jpg);
+  background-image: url(../Images/Sign_in/Student2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -147,7 +151,7 @@
   width: 49.9%;
   height: 100%;
   float: left;
-  background-image: url(../Images/Sign_in/Teacher.jpg);
+  background-image: url(../Images/Sign_in/Teacher2.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -156,7 +160,7 @@
 
 footer{
   width: 100%;
-  height: 200px;
+  height: 500px;
   background-color: tomato;
   background-image: url(../Images/Sign_in/Secreatary.jpg);
   background-size: cover;
@@ -180,14 +184,13 @@ footer{
   padding: 16px 32px;
   text-align: center;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 200px 2px;
   transition-duration: 1s;
   cursor: pointer;
   appearance: button;
   position: absolute;
-  top: 44%;
-  font-size: 70px;
-  left: 38%;
+  font-size: 45px;
+  left: 33%;
   opacity: 0.6;
 }
 
@@ -205,13 +208,12 @@ footer{
   padding: 16px 32px;
   text-align: center;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 100px 2px;
   transition-duration: 1s;
   cursor: pointer;
   appearance: button;
-  position: relative;
-  bottom: 5%;
-  font-size: 70px;
+  position: absolute;
+  font-size: 50px;
   left: 36%;
   opacity: 0.6;
 }

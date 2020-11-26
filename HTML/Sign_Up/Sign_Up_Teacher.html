@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/style_Sign_up_Teacher.css">
     <title>Sign Up Teacher</title>
-    <script src="../../JS/teacher_script_and_data.js"></script>
-    <script src="../../JS/Sign_Up_Teachers.js"></script>
     <link rel="shortcut icon" href="../../Images/Webpage_Icons/Private_School.ico" type="image/x-icon">
 </head>
 <body>
@@ -114,10 +111,10 @@
                             <option value="Chemistry">Chemistry</option>
                             <option value="Physics">Physics</option>
                             <option value="Sociology">Sociology</option>
-                            <option value="Physical_Education">Physical Education</option>
+                            <option value="Physical Education">Physical Education</option>
+                            <option value="none">Not in the subject list</option>
                         </select>
                         <br>
-                        <label><input type="checkbox" name="Subject" id="teacher_sign_up_subject_not_available" onclick="teacher_sign_up_form_extension()">The Subject I want to teach is not on this list</label>
                         <div id="teacher_sign_up_hidden_section">
                             <br>
                             Input the subject you wish to teach at:
@@ -134,5 +131,7 @@
             </section>
         </div>
     </div>
+    <script src="../../JS/teacher_script_and_data.js"></script>
+    <script src="../../JS/Sign_Up_Teachers.js"></script>
 </body>
 </html>

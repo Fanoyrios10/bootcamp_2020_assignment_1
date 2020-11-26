@@ -6,7 +6,7 @@ let course_title = ["demo","Ancient History","Medieval History","Reinasance Hist
 
 let course_stream = ["demo","History","History","History","Programming","Programming","Programming","Chemistry","Chemistry","Chemistry","Physics","Physics","Physics","Sociology","Sociology","Sociology","Physical Education","Physical Education","Physical Education"];
 
-let course_type = ["demo","Full Time:3000€","Part Time:2500€","Online:2000€","Full Time:3000€","Part Time:2500€","Online:2000€","Full Time:3000€","Part Time:2500€","Online:2000€","Full Time:3000€","Part Time:2500€","Online:2000€","Full Time:3000€","Part Time:2500€","Online:2000€","Full Time:3000€","Part Time:2500€","Online:2000€"];
+let course_type = ["demo","Full Time:3000€","Part time:2500€","Online:2000€","Full Time:3000€","Part time:2500€","Online:2000€","Full Time:3000€","Part time:2500€","Online:2000€","Full Time:3000€","Part time:2500€","Online:2000€","Full Time:3000€","Part time:2500€","Online:2000€","Full Time:3000€","Part time:2500€","Online:2000€"];
 
 let course_start_date_0 = [new Date(90, 0, 0),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3),new Date(2020, 9, 3)];
 
@@ -32,9 +32,16 @@ course_type_old = JSON.parse(window.sessionStorage.getItem("course_type_old"));
 course_start_date_old = JSON.parse(window.sessionStorage.getItem("course_start_date_old"));
 course_end_date_old = JSON.parse(window.sessionStorage.getItem("course_end_date_old"));
 
+if (sessionStorage.getItem('test3') == null) {
+  sessionStorage.setItem("course_number_new",JSON.stringify(course_number_old));
+  sessionStorage.setItem("course_title_new",JSON.stringify(course_title_old));
+  sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
+  sessionStorage.setItem("course_type_new",JSON.stringify(course_type_old));
+  sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
+  sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
+}
 
-if (document.getElementById("stripe_header").innerHTML == "From here you can add, edit and update courses.") {
-  window.onload = function load(){
+if (document.getElementById("stripe_header").innerHTML == "From here you can add, edit and update courses. Click on the edit or update button next to a course and a form will pop up at the bottom of the webpage with its information pre-filled. Use the buttons just below so you can hide the forms and sort the table. If you want to add a course click the button bellow the table.") {
     if (sessionStorage.getItem('test3') == null) {
       for (let i = 1; i < course_number_old.length; i++) {
         let trc = document.createElement("tr");
@@ -177,7 +184,6 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can add
       }
     }
   }
-}
 
 function update_Course() {
   update_position = JSON.parse(window.sessionStorage.getItem("update_position"));
@@ -475,4 +481,17 @@ function sortCourseTable() {
     }
   }
 }
+
+function coursesSecretaryHideEditForm() {
+  document.getElementById("form_container_secretary_courses_edit").style.display = "none";
+}
+
+function coursesSecretaryHideUpdateForm() {
+  document.getElementById("form_container_secretary_courses_update").style.display = "none";
+}
+
+function goBack() {
+  location.href = "secretary_home.html";
+}
+
 
