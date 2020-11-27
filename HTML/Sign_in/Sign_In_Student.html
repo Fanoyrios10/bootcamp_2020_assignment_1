@@ -73,6 +73,7 @@
                 <ul class="dropdownList">
                     <li><a href="../Sign_up/Sign_Up.html">Sign Up</a></li>
                     <li><a href="Sign_In.html">Sign In</a></li>
+                    <li><a href="#" onclick="deleteSessionStorage()">Reset Data</a></li>
                 </ul>
             </li>
         </ul>
@@ -86,7 +87,7 @@
                 <h1 id="stripe_header">Sign In Student</h1>
             </div>
             <section>
-                <form name="sign_in_student_form">
+                <form name="sign_in_student_form" onsubmit="sign_in()" action="../student/student_home.html">
                     <p>
                         E-mail:<br>
                         <input type="email" name="e-mail" id="e-mail" placeholder="Input your E-mail here" required>
@@ -95,15 +96,15 @@
                         Password:<br>
                         <input type="password" name="password" id="password" minlength="4" placeholder="Minimum 4 characters" required>
                     </p>
-                        <input type="submit" value="Sign In" onclick="sign_in()" id="sign_in_button">
+                        <input type="submit" value="Sign In" id="sign_in_button">
                         <br>
                         <span id="sign_in_complete">Please wait</span>
                     </p>
                 </form>
-                <button id="sign_in_button_real" onclick="sign_in()">Sign In</button>
             </section>
         </div>
     </div>
     <script src="../../JS/students_script_and_data.js"></script>
+    <script src="../../JS/deleteStorage.js"></script>
 </body>
 </html>

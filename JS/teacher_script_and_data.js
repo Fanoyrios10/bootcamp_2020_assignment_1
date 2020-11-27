@@ -243,9 +243,7 @@ function sign_in() {
   if (sessionStorage.getItem('test') == null) {
     for (let i = 0; i < teachers_number_old.length; i++) {
       if (email_sign_in == teachers_email_old[i] || password_sign_in == teachers_Password_old[i]) {
-        console.log(i);
         let teacher_sign_in_id = teachers_number_old[i];
-        console.log(teacher_sign_in_id);
         sessionStorage.setItem("teacher_sign_in_id",JSON.stringify(teacher_sign_in_id));
         window.alert("Welcome back " + teachers_first_name_old[i] + "!!!");
         setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
@@ -255,8 +253,9 @@ function sign_in() {
       }
     }
   }else {
-    for (let i = 0; i < teachers_number_new.length; i++) {
+    for (let i = 0; i <= teachers_number_new.length; i++) {
       if (email_sign_in == teachers_email_new[i] || password_sign_in == teachers_Password_new[i]) {
+        console.log(teachers_number_new.length);
         console.log(i);
         let teacher_sign_in_id = teachers_number_new[i];
         sessionStorage.setItem("teacher_sign_in_id",JSON.stringify(teacher_sign_in_id));

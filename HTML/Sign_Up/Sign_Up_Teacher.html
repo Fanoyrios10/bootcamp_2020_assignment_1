@@ -73,6 +73,7 @@
                 <ul class="dropdownList">
                     <li><a href="Sign_Up.html">Sign Up</a></li>
                     <li><a href="../Sign_in/Sign_In.html">Sign In</a></li>
+                    <li><a href="#" onclick="deleteSessionStorage()">Reset Data</a></li>
                 </ul>
             </li>
         </ul>
@@ -86,7 +87,7 @@
                 <h1>Sign Up Trainer Form</h1>
             </div>
             <section>
-                <form name="sign_up_teacher_form" id="sign_up_teacher_form" onsubmit="sign_up()">
+                <form name="sign_up_teacher_form" id="sign_up_teacher_form" onsubmit="sign_up()" action="../../index.html">
                     <p>
                         First Name:<br>
                         <input type="text" name="first_name" id="first_name" placeholder="Input your First Name here" required>
@@ -133,5 +134,6 @@
     </div>
     <script src="../../JS/teacher_script_and_data.js"></script>
     <script src="../../JS/Sign_Up_Teachers.js"></script>
+    <script src="../../JS/deleteStorage.js"></script>
 </body>
 </html>

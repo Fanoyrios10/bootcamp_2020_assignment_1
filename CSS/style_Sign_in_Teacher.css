@@ -4,6 +4,10 @@
   font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
+body{
+  background-image: url(../Images/Background_Tiles/orange_paper.gif);
+}
+
 .header{
   background-color: rgb(236, 28, 36);
   width: 100%;
@@ -189,9 +193,6 @@ input{
   text-align: center;
 }
 
-#sign_in_button{
-  display: none;
-}
 
 #teacher_sign_in_hidden_section{
   display: none;
