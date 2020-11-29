@@ -15,34 +15,34 @@ let course_start_date = course_start_date_0.map(d => d.toDateString());
 let course_end_date_0 = [new Date(90, 0, 0),new Date(2021, 4, 10),new Date(2021, 7, 10),new Date(2021, 7, 10),new Date(2021, 04, 10),new Date(2021, 7, 10),new Date(2021, 7, 10),new Date(2021, 04, 10),new Date(2021, 7, 10),new Date(2021, 7, 10),new Date(2021, 04, 10),new Date(2021, 7, 10),new Date(2021, 7, 10),new Date(2021, 04, 10),new Date(2021, 7, 10),new Date(2021, 7, 10),new Date(2021, 04, 10),new Date(2021, 7, 10),new Date(2021, 7, 10)];
 let course_end_date = course_end_date_0.map(d => d.toDateString());
 
-if (sessionStorage.getItem('test3') == null) {
-  sessionStorage.setItem("course_number_old",JSON.stringify(course_number));
-  sessionStorage.setItem("course_title_old",JSON.stringify(course_title));
-  sessionStorage.setItem("course_stream_old",JSON.stringify(course_stream));
-  sessionStorage.setItem("course_type_old",JSON.stringify(course_type));
-  sessionStorage.setItem("course_start_date_old",JSON.stringify(course_start_date));
-  sessionStorage.setItem("course_end_date_old",JSON.stringify(course_end_date));
-  window.alert("First Run Courses");
+if (localStorage.getItem('test3') == null) {
+  localStorage.setItem("course_number_old",JSON.stringify(course_number));
+  localStorage.setItem("course_title_old",JSON.stringify(course_title));
+  localStorage.setItem("course_stream_old",JSON.stringify(course_stream));
+  localStorage.setItem("course_type_old",JSON.stringify(course_type));
+  localStorage.setItem("course_start_date_old",JSON.stringify(course_start_date));
+  localStorage.setItem("course_end_date_old",JSON.stringify(course_end_date));
+  //window.alert("First Run Courses");
 }
 
-course_number_old = JSON.parse(window.sessionStorage.getItem("course_number_old"));
-course_title_old = JSON.parse(window.sessionStorage.getItem("course_title_old"));
-course_stream_old = JSON.parse(window.sessionStorage.getItem("course_stream_old"));
-course_type_old = JSON.parse(window.sessionStorage.getItem("course_type_old"));
-course_start_date_old = JSON.parse(window.sessionStorage.getItem("course_start_date_old"));
-course_end_date_old = JSON.parse(window.sessionStorage.getItem("course_end_date_old"));
+course_number_old = JSON.parse(window.localStorage.getItem("course_number_old"));
+course_title_old = JSON.parse(window.localStorage.getItem("course_title_old"));
+course_stream_old = JSON.parse(window.localStorage.getItem("course_stream_old"));
+course_type_old = JSON.parse(window.localStorage.getItem("course_type_old"));
+course_start_date_old = JSON.parse(window.localStorage.getItem("course_start_date_old"));
+course_end_date_old = JSON.parse(window.localStorage.getItem("course_end_date_old"));
 
-if (sessionStorage.getItem('test3') == null) {
-  sessionStorage.setItem("course_number_new",JSON.stringify(course_number_old));
-  sessionStorage.setItem("course_title_new",JSON.stringify(course_title_old));
-  sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
-  sessionStorage.setItem("course_type_new",JSON.stringify(course_type_old));
-  sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
-  sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
+if (localStorage.getItem('test3') == null) {
+  localStorage.setItem("course_number_new",JSON.stringify(course_number_old));
+  localStorage.setItem("course_title_new",JSON.stringify(course_title_old));
+  localStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
+  localStorage.setItem("course_type_new",JSON.stringify(course_type_old));
+  localStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
+  localStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
 }
 
 if (document.getElementById("stripe_header").innerHTML == "From here you can add, edit and update courses. Click on the edit or update button next to a course and a form will pop up at the bottom of the webpage with its information pre-filled. Use the buttons just below so you can hide the forms and sort the table. If you want to add a course click the button bellow the table.") {
-    if (sessionStorage.getItem('test3') == null) {
+    if (localStorage.getItem('test3') == null) {
       for (let i = 1; i < course_number_old.length; i++) {
         let trc = document.createElement("tr");
         let tdOne = document.createElement("td");
@@ -87,7 +87,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can add
               document.forms["secretary_form_course_edit"]["secretary_edit_a_course_stream"].value = course_stream_old[x];
               document.forms["secretary_form_course_edit"]["secretary_edit_a_course_course_type"].value = course_type_old[x];
               var edit_position = x;
-              sessionStorage.setItem("edit_position",JSON.stringify(edit_position));
+              localStorage.setItem("edit_position",JSON.stringify(edit_position));
               return edit_position;
               /*let date_start = course_start_date[x];
               let start_year = date_start.getFullYear();
@@ -109,7 +109,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can add
               document.forms["secretary_form_course_update"]["secretary_update_a_course_stream"].value = course_stream_old[x];
               document.forms["secretary_form_course_update"]["secretary_update_a_course_course_type"].value = course_type_old[x];
               var update_position = x;
-              sessionStorage.setItem("update_position",JSON.stringify(update_position));
+              localStorage.setItem("update_position",JSON.stringify(update_position));
               return update_position;
             }
           }
@@ -160,7 +160,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can add
               document.forms["secretary_form_course_edit"]["secretary_edit_a_course_stream"].value = course_stream_new[x];
               document.forms["secretary_form_course_edit"]["secretary_edit_a_course_course_type"].value = course_type_new[x];
               var edit_position = x;
-              sessionStorage.setItem("edit_position",JSON.stringify(edit_position));
+              localStorage.setItem("edit_position",JSON.stringify(edit_position));
               return edit_position;
             }
           }
@@ -176,7 +176,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can add
               document.forms["secretary_form_course_update"]["secretary_update_a_course_stream"].value = course_stream_new[x];
               document.forms["secretary_form_course_update"]["secretary_update_a_course_course_type"].value = course_type_new[x];
               var update_position = x;
-              sessionStorage.setItem("update_position",JSON.stringify(update_position));
+              localStorage.setItem("update_position",JSON.stringify(update_position));
               return update_position;
             }
           }
@@ -186,8 +186,8 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can add
   }
 
 function update_Course() {
-  update_position = JSON.parse(window.sessionStorage.getItem("update_position"));
-  if (sessionStorage.getItem('test3') == null) {
+  update_position = JSON.parse(window.localStorage.getItem("update_position"));
+  if (localStorage.getItem('test3') == null) {
     let de_number = course_number_old[update_position];
     let de__title = course_title_old[update_position];
     let de_Stream = course_stream_old[update_position];
@@ -220,7 +220,7 @@ function update_Course() {
   let update_Type = document.forms["secretary_form_course_update"]["secretary_update_a_course_course_type"].value;
   let update_start_date = document.forms["secretary_form_course_update"]["secretary_update_a_course_start_day"].value;
   let update_end_date = document.forms["secretary_form_course_update"]["secretary_update_a_course_End_date"].value;
-  if (sessionStorage.getItem('test3') == null) {
+  if (localStorage.getItem('test3') == null) {
     for (let i = 1; i < course_number_old.length; i++) {
       if (course_number_old[i] == update_number || course_title_old[i] == update_title) {
         course_number_old.splice(update_position,0,de_number);
@@ -247,19 +247,19 @@ function update_Course() {
       }
     }
   }
-  if (sessionStorage.getItem('test3') == null) {
+  if (localStorage.getItem('test3') == null) {
     course_number_old.splice(update_position,1,update_number);
     course_title_old.splice(update_position,1,update_title);
     course_stream_old.splice(update_position,1,update_Stream);
     course_type_old.splice(update_position,1,update_Type);
     course_start_date_old.splice(update_position,1,update_start_date);
     course_end_date_old.splice(update_position,1,update_end_date);
-    sessionStorage.setItem("course_number_new",JSON.stringify(course_number_old));
-    sessionStorage.setItem("course_title_new",JSON.stringify(course_title_old));
-    sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
-    sessionStorage.setItem("course_type_new",JSON.stringify(course_type_old));
-    sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
-    sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
+    localStorage.setItem("course_number_new",JSON.stringify(course_number_old));
+    localStorage.setItem("course_title_new",JSON.stringify(course_title_old));
+    localStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
+    localStorage.setItem("course_type_new",JSON.stringify(course_type_old));
+    localStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
+    localStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
   }else{
     course_number_new.splice(update_position,1,update_number);
     course_title_new.splice(update_position,1,update_title);
@@ -267,20 +267,20 @@ function update_Course() {
     course_type_new.splice(update_position,1,update_Type);
     course_start_date_new.splice(update_position,1,update_start_date);
     course_end_date_new.splice(update_position,1,update_end_date);
-    sessionStorage.setItem("course_number_new",JSON.stringify(course_number_new));
-    sessionStorage.setItem("course_title_new",JSON.stringify(course_title_new));
-    sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_new));
-    sessionStorage.setItem("course_type_new",JSON.stringify(course_type_new));
-    sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_new));
-    sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_new));
+    localStorage.setItem("course_number_new",JSON.stringify(course_number_new));
+    localStorage.setItem("course_title_new",JSON.stringify(course_title_new));
+    localStorage.setItem("course_stream_new",JSON.stringify(course_stream_new));
+    localStorage.setItem("course_type_new",JSON.stringify(course_type_new));
+    localStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_new));
+    localStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_new));
   }
-  sessionStorage.setItem('test3', 1);
+  localStorage.setItem('test3', 1);
   return true;
 }
 
 function edit_Course() {
-  edit_position = JSON.parse(window.sessionStorage.getItem("edit_position"));
-  if (sessionStorage.getItem('test3') == null) {
+  edit_position = JSON.parse(window.localStorage.getItem("edit_position"));
+  if (localStorage.getItem('test3') == null) {
     let de_number = course_number_old[edit_position];
     let de__title = course_title_old[edit_position];
     let de_Stream = course_stream_old[edit_position];
@@ -313,7 +313,7 @@ function edit_Course() {
   let edit_Type = document.forms["secretary_form_course_edit"]["secretary_edit_a_course_course_type"].value;
   let edit_start_date = document.forms["secretary_form_course_edit"]["secretary_edit_a_course_start_day"].value;
   let edit_end_date = document.forms["secretary_form_course_edit"]["secretary_edit_a_course_End_date"].value;
-  if (sessionStorage.getItem('test3') == null) {
+  if (localStorage.getItem('test3') == null) {
     for (let i = 1; i < course_number_old.length; i++) {
       if (course_number_old[i] == edit_number || course_title_old[i] == edit_title) {
         course_number_old.splice(edit_position,0,de_number);
@@ -340,19 +340,19 @@ function edit_Course() {
       }
     }
   }
-  if (sessionStorage.getItem('test3') == null) {
+  if (localStorage.getItem('test3') == null) {
     course_number_old.splice(edit_position,1,edit_number);
     course_title_old.splice(edit_position,1,edit_title);
     course_stream_old.splice(edit_position,1,edit_Stream);
     course_type_old.splice(edit_position,1,edit_Type);
     course_start_date_old.splice(edit_position,1,edit_start_date);
     course_end_date_old.splice(edit_position,1,edit_end_date);
-    sessionStorage.setItem("course_number_new",JSON.stringify(course_number_old));
-    sessionStorage.setItem("course_title_new",JSON.stringify(course_title_old));
-    sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
-    sessionStorage.setItem("course_type_new",JSON.stringify(course_type_old));
-    sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
-    sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
+    localStorage.setItem("course_number_new",JSON.stringify(course_number_old));
+    localStorage.setItem("course_title_new",JSON.stringify(course_title_old));
+    localStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
+    localStorage.setItem("course_type_new",JSON.stringify(course_type_old));
+    localStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
+    localStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
   }else{
     course_number_new.splice(edit_position,1,edit_number);
     course_title_new.splice(edit_position,1,edit_title);
@@ -360,14 +360,14 @@ function edit_Course() {
     course_type_new.splice(edit_position,1,edit_Type);
     course_start_date_new.splice(edit_position,1,edit_start_date);
     course_end_date_new.splice(edit_position,1,edit_end_date);
-    sessionStorage.setItem("course_number_new",JSON.stringify(course_number_new));
-    sessionStorage.setItem("course_title_new",JSON.stringify(course_title_new));
-    sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_new));
-    sessionStorage.setItem("course_type_new",JSON.stringify(course_type_new));
-    sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_new));
-    sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_new));
+    localStorage.setItem("course_number_new",JSON.stringify(course_number_new));
+    localStorage.setItem("course_title_new",JSON.stringify(course_title_new));
+    localStorage.setItem("course_stream_new",JSON.stringify(course_stream_new));
+    localStorage.setItem("course_type_new",JSON.stringify(course_type_new));
+    localStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_new));
+    localStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_new));
   }
-  sessionStorage.setItem('test3', 1);
+  localStorage.setItem('test3', 1);
   return true;
 }
 
@@ -405,7 +405,7 @@ function Add_Course() {
   let Add_Type = document.forms["secretary_form_course_add"]["secretary_create_a_course_course_type"].value;
   let Add_start_date = document.forms["secretary_form_course_add"]["secretary_create_a_course_start_day"].value;
   let Add_end_date = document.forms["secretary_form_course_add"]["secretary_create_a_course_End_date"].value;
-  if (sessionStorage.getItem('test3') == null) {
+  if (localStorage.getItem('test3') == null) {
     for (let i = 1; i < course_number_old.length; i++) {
       if (course_number_old[i] == Add_number || course_title_old[i] == Add_title) {
         window.alert("Number or Title already exists!!!");
@@ -420,19 +420,19 @@ function Add_Course() {
       }
     }
   }
-  if (sessionStorage.getItem('test3') == null) {
+  if (localStorage.getItem('test3') == null) {
     course_number_old.push(Add_number);
     course_title_old.push(Add_title);
     course_stream_old.push(Add_Stream);
     course_type_old.push(Add_Type);
     course_start_date_old.push(Add_start_date);
     course_end_date_old.push(Add_end_date);
-    sessionStorage.setItem("course_number_new",JSON.stringify(course_number_old));
-    sessionStorage.setItem("course_title_new",JSON.stringify(course_title_old));
-    sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
-    sessionStorage.setItem("course_type_new",JSON.stringify(course_type_old));
-    sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
-    sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
+    localStorage.setItem("course_number_new",JSON.stringify(course_number_old));
+    localStorage.setItem("course_title_new",JSON.stringify(course_title_old));
+    localStorage.setItem("course_stream_new",JSON.stringify(course_stream_old));
+    localStorage.setItem("course_type_new",JSON.stringify(course_type_old));
+    localStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_old));
+    localStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_old));
   }else{
     course_number_new.push(Add_number);
     course_title_new.push(Add_title);
@@ -440,24 +440,24 @@ function Add_Course() {
     course_type_new.push(Add_Type);
     course_start_date_new.push(Add_start_date);
     course_end_date_new.push(Add_end_date);
-    sessionStorage.setItem("course_number_new",JSON.stringify(course_number_new));
-    sessionStorage.setItem("course_title_new",JSON.stringify(course_title_new));
-    sessionStorage.setItem("course_stream_new",JSON.stringify(course_stream_new));
-    sessionStorage.setItem("course_type_new",JSON.stringify(course_type_new));
-    sessionStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_new));
-    sessionStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_new));
+    localStorage.setItem("course_number_new",JSON.stringify(course_number_new));
+    localStorage.setItem("course_title_new",JSON.stringify(course_title_new));
+    localStorage.setItem("course_stream_new",JSON.stringify(course_stream_new));
+    localStorage.setItem("course_type_new",JSON.stringify(course_type_new));
+    localStorage.setItem("course_start_date_new",JSON.stringify(course_start_date_new));
+    localStorage.setItem("course_end_date_new",JSON.stringify(course_end_date_new));
   }
   let new_course = [Add_number,Add_title,Add_Stream,Add_Type,Add_start_date,Add_end_date];
-  sessionStorage.setItem('test3', 1);
+  localStorage.setItem('test3', 1);
   return new_course;
 }
 
-course_number_new = JSON.parse(window.sessionStorage.getItem("course_number_new"));
-course_title_new = JSON.parse(window.sessionStorage.getItem("course_title_new"));
-course_stream_new = JSON.parse(window.sessionStorage.getItem("course_stream_new"));
-course_type_new = JSON.parse(window.sessionStorage.getItem("course_type_new"));
-course_start_date_new = JSON.parse(window.sessionStorage.getItem("course_start_date_new"));
-course_end_date_new = JSON.parse(window.sessionStorage.getItem("course_end_date_new"));
+course_number_new = JSON.parse(window.localStorage.getItem("course_number_new"));
+course_title_new = JSON.parse(window.localStorage.getItem("course_title_new"));
+course_stream_new = JSON.parse(window.localStorage.getItem("course_stream_new"));
+course_type_new = JSON.parse(window.localStorage.getItem("course_type_new"));
+course_start_date_new = JSON.parse(window.localStorage.getItem("course_start_date_new"));
+course_end_date_new = JSON.parse(window.localStorage.getItem("course_end_date_new"));
 
 function sortCourseTable() {
   var table, rows, switching, i, x, y, shouldSwitch;

@@ -14,49 +14,49 @@ let assignments_course_link = ["demo"];
 
 let assignments_student_name_assigned = ["demo"];
 
-if (sessionStorage.getItem('test4') == null) {
-  sessionStorage.setItem("assignments_number_old",JSON.stringify(assignments_number));
-  sessionStorage.setItem("assignments_title_old",JSON.stringify(assignments_title));
-  sessionStorage.setItem("assignments_description_old",JSON.stringify(assignments_description));
-  sessionStorage.setItem("assignments_submission_old",JSON.stringify(assignments_submission));
-  sessionStorage.setItem("assignments_oral_mark_old",JSON.stringify(assignments_oral_mark));
-  sessionStorage.setItem("assignments_total_mark_old",JSON.stringify(assignments_total_mark));
-  sessionStorage.setItem("assignments_course_link_old",JSON.stringify(assignments_course_link));
-  sessionStorage.setItem("assignments_student_name_assigned_old",JSON.stringify(assignments_student_name_assigned));
-  window.alert("First Run Assignments");
+if (localStorage.getItem('test4') == null) {
+  localStorage.setItem("assignments_number_old",JSON.stringify(assignments_number));
+  localStorage.setItem("assignments_title_old",JSON.stringify(assignments_title));
+  localStorage.setItem("assignments_description_old",JSON.stringify(assignments_description));
+  localStorage.setItem("assignments_submission_old",JSON.stringify(assignments_submission));
+  localStorage.setItem("assignments_oral_mark_old",JSON.stringify(assignments_oral_mark));
+  localStorage.setItem("assignments_total_mark_old",JSON.stringify(assignments_total_mark));
+  localStorage.setItem("assignments_course_link_old",JSON.stringify(assignments_course_link));
+  localStorage.setItem("assignments_student_name_assigned_old",JSON.stringify(assignments_student_name_assigned));
+  //window.alert("First Run Assignments");
 }
 
-assignments_number_old = JSON.parse(window.sessionStorage.getItem("assignments_number_old"));
-assignments_title_old = JSON.parse(window.sessionStorage.getItem("assignments_title_old"));
-assignments_description_old = JSON.parse(window.sessionStorage.getItem("assignments_description_old"));
-assignments_submission_old = JSON.parse(window.sessionStorage.getItem("assignments_submission_old"));
-assignments_oral_mark_old = JSON.parse(window.sessionStorage.getItem("assignments_oral_mark_old"));
-assignments_total_mark_old = JSON.parse(window.sessionStorage.getItem("assignments_total_mark_old"));
-assignments_course_link_old = JSON.parse(window.sessionStorage.getItem("assignments_course_link_old"));
-assignments_student_name_assigned_old = JSON.parse(window.sessionStorage.getItem("assignments_student_name_assigned_old"));
+assignments_number_old = JSON.parse(window.localStorage.getItem("assignments_number_old"));
+assignments_title_old = JSON.parse(window.localStorage.getItem("assignments_title_old"));
+assignments_description_old = JSON.parse(window.localStorage.getItem("assignments_description_old"));
+assignments_submission_old = JSON.parse(window.localStorage.getItem("assignments_submission_old"));
+assignments_oral_mark_old = JSON.parse(window.localStorage.getItem("assignments_oral_mark_old"));
+assignments_total_mark_old = JSON.parse(window.localStorage.getItem("assignments_total_mark_old"));
+assignments_course_link_old = JSON.parse(window.localStorage.getItem("assignments_course_link_old"));
+assignments_student_name_assigned_old = JSON.parse(window.localStorage.getItem("assignments_student_name_assigned_old"));
 
-if (sessionStorage.getItem('test4') == null) {
-  sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
-  sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
-  sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
-  sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
-  sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
-  sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
-  sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
-  sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
+if (localStorage.getItem('test4') == null) {
+  localStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
+  localStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
+  localStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
+  localStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
+  localStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
+  localStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
+  localStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
+  localStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
 }
 
-assignments_number_new = JSON.parse(window.sessionStorage.getItem("assignments_number_new"));
-assignments_title_new = JSON.parse(window.sessionStorage.getItem("assignments_title_new"));
-assignments_description_new = JSON.parse(window.sessionStorage.getItem("assignments_description_new"));
-assignments_submission_new = JSON.parse(window.sessionStorage.getItem("assignments_submission_new"));
-assignments_oral_mark_new = JSON.parse(window.sessionStorage.getItem("assignments_oral_mark_new"));
-assignments_total_mark_new = JSON.parse(window.sessionStorage.getItem("assignments_total_mark_new"));
-assignments_course_link_new = JSON.parse(window.sessionStorage.getItem("assignments_course_link_new"));
-assignments_student_name_assigned_new = JSON.parse(window.sessionStorage.getItem("assignments_student_name_assigned_new"));
+assignments_number_new = JSON.parse(window.localStorage.getItem("assignments_number_new"));
+assignments_title_new = JSON.parse(window.localStorage.getItem("assignments_title_new"));
+assignments_description_new = JSON.parse(window.localStorage.getItem("assignments_description_new"));
+assignments_submission_new = JSON.parse(window.localStorage.getItem("assignments_submission_new"));
+assignments_oral_mark_new = JSON.parse(window.localStorage.getItem("assignments_oral_mark_new"));
+assignments_total_mark_new = JSON.parse(window.localStorage.getItem("assignments_total_mark_new"));
+assignments_course_link_new = JSON.parse(window.localStorage.getItem("assignments_course_link_new"));
+assignments_student_name_assigned_new = JSON.parse(window.localStorage.getItem("assignments_student_name_assigned_new"));
 
 if (document.getElementById("stripe_header").innerHTML == "From here you can view the assignments. Assignments are entirely handled by the Trainers.") {
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     for (let i = 0; i < assignments_number_old.length; i++) {
       let trc = document.createElement("tr");
       var tdOne = document.createElement("td"); 
@@ -118,7 +118,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
 }
 
 if (document.getElementById("stripe_header").innerHTML == "From here you can view and edit some of your personal information and choose the course you wish to attend.You can also add,edit and update assignments. If you wish to change something that is not in this form you will have to contact the secreatry.") {
-    if (sessionStorage.getItem('test4') == null) {
+    if (localStorage.getItem('test4') == null) {
       for (let i = 0; i < assignments_number_old.length; i++) {  
         let trc = document.createElement("tr");
           var tdOne = document.createElement("td"); 
@@ -162,7 +162,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
             for (let x = 0; x <assignments_number_old.length; x++) {
               if (Edit_Button.id == "Edit_Assignment_button" + x) {
                 document.getElementById("Edit_Asignment_form_container").style.display = "block";
-                if (sessionStorage.getItem('test3') == null) {
+                if (localStorage.getItem('test3') == null) {
                   for (let i = 1; i < course_title_old.length; i++) {
                     let teacher_course_list_assiignment = document.createElement("option");
                     teacher_course_list_assiignment.innerHTML = course_title_old[i];
@@ -177,7 +177,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                     document.getElementById("course_teacher_select_assignment_edit").appendChild(teacher_course_list_assiignment);
                   }
                 }
-                if (sessionStorage.getItem('test2') == null) {
+                if (localStorage.getItem('test2') == null) {
                   for (let i = 1; i < students_number_old.length; i++) {
                     let teacher_students_list_assiignment = document.createElement("option");
                     teacher_students_list_assiignment.innerHTML = students_last_name_old[i];
@@ -201,7 +201,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                 document.forms["edit_assignment_teacher_form"]["course_teacher_select_assignment_edit"].value = assignments_course_link_old[x];
                 document.forms["edit_assignment_teacher_form"]["student_teacher_select_assignment_edit"].value = assignments_student_name_assigned_old[x];
                 var edit_assignments_position = x;
-                sessionStorage.setItem("edit_assignments_position",JSON.stringify(edit_assignments_position));
+                localStorage.setItem("edit_assignments_position",JSON.stringify(edit_assignments_position));
                 return edit_assignments_position;
               }
             }
@@ -210,7 +210,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
             for (let x = 0; x <assignments_number_old.length; x++) {
               if (Update_Button.id == "Update_Assignment_button" + x) {
                 document.getElementById("Update_Asignment_form_container").style.display = "block";
-                if (sessionStorage.getItem('test3') == null) {
+                if (localStorage.getItem('test3') == null) {
                   for (let i = 1; i < course_title_old.length; i++) {
                     let teacher_course_list_assiignment = document.createElement("option");
                     teacher_course_list_assiignment.innerHTML = course_title_old[i];
@@ -225,7 +225,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                     document.getElementById("course_teacher_select_assignment_update").appendChild(teacher_course_list_assiignment);
                   }
                 }
-                if (sessionStorage.getItem('test2') == null) {
+                if (localStorage.getItem('test2') == null) {
                   for (let i = 1; i < students_number_old.length; i++) {
                     let teacher_students_list_assiignment = document.createElement("option");
                     teacher_students_list_assiignment.innerHTML = students_last_name_old[i];
@@ -249,7 +249,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                 document.forms["update_assignment_teacher_form"]["course_teacher_select_assignment_update"].value = assignments_course_link_old[x];
                 document.forms["update_assignment_teacher_form"]["student_teacher_select_assignment_update"].value = assignments_student_name_assigned_old[x];
                 var update_assignments_position = x;
-                sessionStorage.setItem("update_assignments_position",JSON.stringify(update_assignments_position));
+                localStorage.setItem("update_assignments_position",JSON.stringify(update_assignments_position));
                 return update_assignments_position;
               }
             }
@@ -299,7 +299,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
             for (let x = 0; x <assignments_number_new.length; x++) {
               if (Edit_Button.id == "Edit_Assignment_button" + x) {
                 document.getElementById("Edit_Asignment_form_container").style.display = "block";
-                if (sessionStorage.getItem('test3') == null) {
+                if (localStorage.getItem('test3') == null) {
                   for (let i = 1; i < course_title_old.length; i++) {
                     let teacher_course_list_assiignment = document.createElement("option");
                     teacher_course_list_assiignment.innerHTML = course_title_old[i];
@@ -314,7 +314,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                     document.getElementById("course_teacher_select_assignment_edit").appendChild(teacher_course_list_assiignment);
                   }
                 }
-                if (sessionStorage.getItem('test2') == null) {
+                if (localStorage.getItem('test2') == null) {
                   for (let i = 1; i < students_number_old.length; i++) {
                     let teacher_students_list_assiignment = document.createElement("option");
                     teacher_students_list_assiignment.innerHTML = students_last_name_old[i];
@@ -338,7 +338,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                 document.forms["edit_assignment_teacher_form"]["course_teacher_select_assignment_edit"].value = assignments_course_link_new[x];
                 document.forms["edit_assignment_teacher_form"]["student_teacher_select_assignment_edit"].value = assignments_student_name_assigned_new[x];
                 var edit_assignments_position = x;
-                sessionStorage.setItem("edit_assignments_position",JSON.stringify(edit_assignments_position));
+                localStorage.setItem("edit_assignments_position",JSON.stringify(edit_assignments_position));
                 return edit_assignments_position;
               }
             }
@@ -347,7 +347,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
             for (let x = 0; x <assignments_number_new.length; x++) {
               if (Update_Button.id == "Update_Assignment_button" + x) {
                 document.getElementById("Update_Asignment_form_container").style.display = "block";
-                if (sessionStorage.getItem('test3') == null) {
+                if (localStorage.getItem('test3') == null) {
                   for (let i = 1; i < course_title_old.length; i++) {
                     let teacher_course_list_assiignment = document.createElement("option");
                     teacher_course_list_assiignment.innerHTML = course_title_old[i];
@@ -362,7 +362,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                     document.getElementById("course_teacher_select_assignment_update").appendChild(teacher_course_list_assiignment);
                   }
                 }
-                if (sessionStorage.getItem('test2') == null) {
+                if (localStorage.getItem('test2') == null) {
                   for (let i = 1; i < students_number_old.length; i++) {
                     let teacher_students_list_assiignment = document.createElement("option");
                     teacher_students_list_assiignment.innerHTML = students_last_name_old[i];
@@ -386,7 +386,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
                 document.forms["update_assignment_teacher_form"]["course_teacher_select_assignment_update"].value = assignments_course_link_new[x];
                 document.forms["update_assignment_teacher_form"]["student_teacher_select_assignment_update"].value = assignments_student_name_assigned_new[x];
                 var update_assignments_position = x;
-                sessionStorage.setItem("update_assignments_position",JSON.stringify(update_assignments_position));
+                localStorage.setItem("update_assignments_position",JSON.stringify(update_assignments_position));
                 return update_assignments_position;
               }
             }
@@ -407,7 +407,7 @@ function add_assignment_teacher() {
   let oraln = parseInt(oral);
   let totaln = parseInt(total);
   let total2 = oraln + totaln;
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     for (let i = 0; i < assignments_number_old.length; i++) {
       if (number == assignments_number_old) {
         window.alert("Number already exists!!!")
@@ -426,7 +426,7 @@ function add_assignment_teacher() {
     window.alert("Oral and Total do not add up to 100!!!")
     return false;
   }
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     assignments_number_old.push(number);
     assignments_title_old.push(title);
     assignments_description_old.push(description);
@@ -435,14 +435,14 @@ function add_assignment_teacher() {
     assignments_total_mark_old.push(totaln);
     assignments_course_link_old.push(course);
     assignments_student_name_assigned_old.push(student);
-    sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
-    sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
-    sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
-    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
-    sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
-    sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
-    sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
-    sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
+    localStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
+    localStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
+    localStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
+    localStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
+    localStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
+    localStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
+    localStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
+    localStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
   }else{
     assignments_number_new.push(number);
     assignments_title_new.push(title);
@@ -452,31 +452,31 @@ function add_assignment_teacher() {
     assignments_total_mark_new.push(totaln);
     assignments_course_link_new.push(course);
     assignments_student_name_assigned_new.push(student);
-    sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_new));
-    sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_new));
-    sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_new));
-    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_new));
-    sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_new));
-    sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_new));
-    sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_new));
-    sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_new));
+    localStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_new));
+    localStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_new));
+    localStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_new));
+    localStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_new));
+    localStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_new));
+    localStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_new));
+    localStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_new));
+    localStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_new));
   }
-  if (sessionStorage.getItem('test2') == null) {
+  if (localStorage.getItem('test2') == null) {
     for (let i = 0; i < students_number_old.length; i++) {
       if (students_last_name_old[i] === student) {
         delete students_assignments_old[i];
         students_assignments_old.splice(i,1,title);
-        sessionStorage.setItem("students_number_new",JSON.stringify(students_number_old));
-        sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_old));
-        sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_old));
-        sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_old));
-        sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_old));
-        sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_old));
-        sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_old));
-        sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_old));
-        sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_old));
-        sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_old));
-        sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_old));
+        localStorage.setItem("students_number_new",JSON.stringify(students_number_old));
+        localStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_old));
+        localStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_old));
+        localStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_old));
+        localStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_old));
+        localStorage.setItem("students_emails_new",JSON.stringify(students_emails_old));
+        localStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_old));
+        localStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_old));
+        localStorage.setItem("students_courses_new",JSON.stringify(students_courses_old));
+        localStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_old));
+        localStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_old));
       }
     }
   }else{
@@ -484,36 +484,36 @@ function add_assignment_teacher() {
       if (students_last_name_new[i] === student) {
         delete students_assignments_new[i];
         students_assignments_new.splice(i,1,title);
-        sessionStorage.setItem("students_number_new",JSON.stringify(students_number_new));
-        sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_new));
-        sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_new));
-        sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_new));
-        sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_new));
-        sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_new));
-        sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_new));
-        sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_new));
-        sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_new));
-        sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_new));
-        sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_new));
+        localStorage.setItem("students_number_new",JSON.stringify(students_number_new));
+        localStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_new));
+        localStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_new));
+        localStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_new));
+        localStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_new));
+        localStorage.setItem("students_emails_new",JSON.stringify(students_emails_new));
+        localStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_new));
+        localStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_new));
+        localStorage.setItem("students_courses_new",JSON.stringify(students_courses_new));
+        localStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_new));
+        localStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_new));
       }
     }
   }
-  sessionStorage.setItem('test4', 1);
-  sessionStorage.setItem('test2', 1);
+  localStorage.setItem('test4', 1);
+  localStorage.setItem('test2', 1);
   return true;
 }
 
-assignments_number_new = JSON.parse(window.sessionStorage.getItem("assignments_number_new"));
-assignments_title_new = JSON.parse(window.sessionStorage.getItem("assignments_title_new"));
-assignments_description_new = JSON.parse(window.sessionStorage.getItem("assignments_description_new"));
-assignments_submission_new = JSON.parse(window.sessionStorage.getItem("assignments_submission_new"));
-assignments_oral_mark_new = JSON.parse(window.sessionStorage.getItem("assignments_oral_mark_new"));
-assignments_total_mark_new = JSON.parse(window.sessionStorage.getItem("assignments_total_mark_new"));
-assignments_course_link_new = JSON.parse(window.sessionStorage.getItem("assignments_course_link_new"));
-assignments_student_name_assigned_new = JSON.parse(window.sessionStorage.getItem("assignments_student_name_assigned_new"));
+assignments_number_new = JSON.parse(window.localStorage.getItem("assignments_number_new"));
+assignments_title_new = JSON.parse(window.localStorage.getItem("assignments_title_new"));
+assignments_description_new = JSON.parse(window.localStorage.getItem("assignments_description_new"));
+assignments_submission_new = JSON.parse(window.localStorage.getItem("assignments_submission_new"));
+assignments_oral_mark_new = JSON.parse(window.localStorage.getItem("assignments_oral_mark_new"));
+assignments_total_mark_new = JSON.parse(window.localStorage.getItem("assignments_total_mark_new"));
+assignments_course_link_new = JSON.parse(window.localStorage.getItem("assignments_course_link_new"));
+assignments_student_name_assigned_new = JSON.parse(window.localStorage.getItem("assignments_student_name_assigned_new"));
 
 function edit_assignment_teacher() {
-  let edit_assignments_position = JSON.parse(window.sessionStorage.getItem("edit_assignments_position"));
+  let edit_assignments_position = JSON.parse(window.localStorage.getItem("edit_assignments_position"));
   let number = document.forms["edit_assignment_teacher_form"]["number_edit"].value;
   let title = document.forms["edit_assignment_teacher_form"]["title_edit"].value;
   let description = document.forms["edit_assignment_teacher_form"]["Description_edit"].value;
@@ -529,7 +529,7 @@ function edit_assignment_teacher() {
     window.alert("Oral and Total do not add up to 100!!!")
     return false;
   }
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     delete assignments_number_old[edit_assignments_position];
     delete assignments_title_old[edit_assignments_position];
     delete assignments_description_old[edit_assignments_position];
@@ -548,7 +548,7 @@ function edit_assignment_teacher() {
     delete assignments_course_link_new[edit_assignments_position];
     delete assignments_student_name_assigned_new[edit_assignments_position];
   }
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     for (let i = 0; i < assignments_number_old.length; i++) {
       if (number == assignments_number_old) {
         window.alert("Number already exists!!!")
@@ -563,7 +563,7 @@ function edit_assignment_teacher() {
       }
     }
   }
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     assignments_number_old.splice(edit_assignments_position,1,number);
     assignments_title_old.splice(edit_assignments_position,1,title);
     assignments_description_old.splice(edit_assignments_position,1,description);
@@ -572,14 +572,14 @@ function edit_assignment_teacher() {
     assignments_total_mark_old.splice(edit_assignments_position,1,totaln);
     assignments_course_link_old.splice(edit_assignments_position,1,course);
     assignments_student_name_assigned_old.splice(edit_assignments_position,1,student);
-    sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
-    sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
-    sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
-    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
-    sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
-    sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
-    sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
-    sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
+    localStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
+    localStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
+    localStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
+    localStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
+    localStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
+    localStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
+    localStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
+    localStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
   }else{
     assignments_number_new.splice(edit_assignments_position,1,number);
     assignments_title_new.splice(edit_assignments_position,1,title);
@@ -589,21 +589,21 @@ function edit_assignment_teacher() {
     assignments_total_mark_new.splice(edit_assignments_position,1,totaln);
     assignments_course_link_new.splice(edit_assignments_position,1,course);
     assignments_student_name_assigned_new.splice(edit_assignments_position,1,student);
-    sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_new));
-    sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_new));
-    sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_new));
-    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_new));
-    sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_new));
-    sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_new));
-    sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_new));
-    sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_new));
+    localStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_new));
+    localStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_new));
+    localStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_new));
+    localStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_new));
+    localStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_new));
+    localStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_new));
+    localStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_new));
+    localStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_new));
   }
-  sessionStorage.setItem('test4', 1);
+  localStorage.setItem('test4', 1);
   return true;
 }
 
 function update_assignment_teacher() {
-  let update_assignments_position = JSON.parse(window.sessionStorage.getItem("update_assignments_position"));
+  let update_assignments_position = JSON.parse(window.localStorage.getItem("update_assignments_position"));
   let number = document.forms["update_assignment_teacher_form"]["number_update"].value;
   let title = document.forms["update_assignment_teacher_form"]["title_update"].value;
   let description = document.forms["update_assignment_teacher_form"]["Description_update"].value;
@@ -619,7 +619,7 @@ function update_assignment_teacher() {
     window.alert("Oral and Total do not add up to 100!!!")
     return false;
   }
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     delete assignments_number_old[update_assignments_position];
     delete assignments_title_old[update_assignments_position];
     delete assignments_description_old[update_assignments_position];
@@ -638,7 +638,7 @@ function update_assignment_teacher() {
     delete assignments_course_link_new[update_assignments_position];
     delete assignments_student_name_assigned_new[update_assignments_position];
   }
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     for (let i = 0; i < assignments_number_old.length; i++) {
       if (number == assignments_number_old) {
         window.alert("Number already exists!!!")
@@ -653,7 +653,7 @@ function update_assignment_teacher() {
       }
     }
   }
-  if (sessionStorage.getItem('test4') == null) {
+  if (localStorage.getItem('test4') == null) {
     assignments_number_old.splice(update_assignments_position,1,number);
     assignments_title_old.splice(update_assignments_position,1,title);
     assignments_description_old.splice(update_assignments_position,1,description);
@@ -662,14 +662,14 @@ function update_assignment_teacher() {
     assignments_total_mark_old.splice(update_assignments_position,1,totaln);
     assignments_course_link_old.splice(update_assignments_position,1,course);
     assignments_student_name_assigned_old.splice(update_assignments_position,1,student);
-    sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
-    sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
-    sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
-    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
-    sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
-    sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
-    sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
-    sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
+    localStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_old));
+    localStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_old));
+    localStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_old));
+    localStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_old));
+    localStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_old));
+    localStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_old));
+    localStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_old));
+    localStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_old));
   }else{
     assignments_number_new.splice(update_assignments_position,1,number);
     assignments_title_new.splice(update_assignments_position,1,title);
@@ -679,16 +679,16 @@ function update_assignment_teacher() {
     assignments_total_mark_new.splice(update_assignments_position,1,totaln);
     assignments_course_link_new.splice(update_assignments_position,1,course);
     assignments_student_name_assigned_new.splice(update_assignments_position,1,student);
-    sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_new));
-    sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_new));
-    sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_new));
-    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_new));
-    sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_new));
-    sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_new));
-    sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_new));
-    sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_new));
+    localStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_new));
+    localStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_new));
+    localStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_new));
+    localStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_new));
+    localStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_new));
+    localStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_new));
+    localStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_new));
+    localStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_new));
   }
-  sessionStorage.setItem('test4', 1);
+  localStorage.setItem('test4', 1);
   return true;
 }
 
