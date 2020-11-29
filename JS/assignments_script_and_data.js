@@ -455,13 +455,51 @@ function add_assignment_teacher() {
     sessionStorage.setItem("assignments_number_new",JSON.stringify(assignments_number_new));
     sessionStorage.setItem("assignments_title_new",JSON.stringify(assignments_title_new));
     sessionStorage.setItem("assignments_description_new",JSON.stringify(assignments_description_new));
-    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission));
+    sessionStorage.setItem("assignments_submission_new",JSON.stringify(assignments_submission_new));
     sessionStorage.setItem("assignments_oral_mark_new",JSON.stringify(assignments_oral_mark_new));
     sessionStorage.setItem("assignments_total_mark_new",JSON.stringify(assignments_total_mark_new));
     sessionStorage.setItem("assignments_course_link_new",JSON.stringify(assignments_course_link_new));
     sessionStorage.setItem("assignments_student_name_assigned_new",JSON.stringify(assignments_student_name_assigned_new));
   }
+  if (sessionStorage.getItem('test2') == null) {
+    for (let i = 0; i < students_number_old.length; i++) {
+      if (students_last_name_old[i] === student) {
+        delete students_assignments_old[i];
+        students_assignments_old.splice(i,1,title);
+        sessionStorage.setItem("students_number_new",JSON.stringify(students_number_old));
+        sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_old));
+        sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_old));
+        sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_old));
+        sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_old));
+        sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_old));
+        sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_old));
+        sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_old));
+        sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_old));
+        sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_old));
+        sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_old));
+      }
+    }
+  }else{
+    for (let i = 0; i < students_number_new.length; i++) {
+      if (students_last_name_new[i] === student) {
+        delete students_assignments_new[i];
+        students_assignments_new.splice(i,1,title);
+        sessionStorage.setItem("students_number_new",JSON.stringify(students_number_new));
+        sessionStorage.setItem("students_first_name_new",JSON.stringify(students_first_name_new));
+        sessionStorage.setItem("students_last_name_new",JSON.stringify(students_last_name_new));
+        sessionStorage.setItem("students_date_of_birth_new",JSON.stringify(students_date_of_birth_new));
+        sessionStorage.setItem("students_tutitions_fees_new",JSON.stringify(students_tutitions_fees_new));
+        sessionStorage.setItem("students_emails_new",JSON.stringify(students_emails_new));
+        sessionStorage.setItem("passwords_students_new",JSON.stringify(passwords_students_new));
+        sessionStorage.setItem("subjects_students_new",JSON.stringify(subjects_students_new));
+        sessionStorage.setItem("students_courses_new",JSON.stringify(students_courses_new));
+        sessionStorage.setItem("students_assignments_new",JSON.stringify(students_assignments_new));
+        sessionStorage.setItem("students_courses_desires_new",JSON.stringify(students_courses_desires_new));
+      }
+    }
+  }
   sessionStorage.setItem('test4', 1);
+  sessionStorage.setItem('test2', 1);
   return true;
 }
 

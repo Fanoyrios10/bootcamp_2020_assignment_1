@@ -190,7 +190,7 @@ function sign_in() {
   }
   if (sessionStorage.getItem('test2') == null) {
     for (let i = 0; i <= students_number_old.length; i++) {
-      if (email_sign_in == students_emails_old[i] || password_sign_in == passwords_students_old[i]) {
+      if (email_sign_in == students_emails_old[i] && password_sign_in == passwords_students_old[i]) {
         console.log(i);
         window.alert("Welcome back " + students_first_name_old[i] + "!!!");
         let student_sign_in_id = students_number_old[i];
@@ -203,7 +203,7 @@ function sign_in() {
     }
   }else{
     for (let i = 0; i <= students_number_new.length; i++) {
-      if (email_sign_in == students_emails_new[i] || password_sign_in == passwords_students_new[i]) {
+      if (email_sign_in == students_emails_new[i] && password_sign_in == passwords_students_new[i]) {
         console.log(i);
         window.alert("Welcome back " + students_first_name_new[i] + "!!!");
         let student_sign_in_id = students_number_new[i];
@@ -249,10 +249,13 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
     }
   if (sessionStorage.getItem('test3') == null) {
     document.getElementById("table_student_home_course").innerHTML = students_courses_old[student_sign_in_id];
-    document.getElementById("table_student_home_assignment").innerHTML = students_assignments_old[student_sign_in_id];
   }else{
     document.getElementById("table_student_home_course").innerHTML = students_courses_new[student_sign_in_id];
-    document.getElementById("table_student_home_assignment").innerHTML = students_assignments_new[student_sign_in_id];
+    }
+    if (sessionStorage.getItem('test4') == null) {
+      document.getElementById("table_student_home_assignment").innerHTML = students_assignments_old[student_sign_in_id];
+    }else{
+      document.getElementById("table_student_home_assignment").innerHTML = students_assignments_new[student_sign_in_id];
     }
   }
 }

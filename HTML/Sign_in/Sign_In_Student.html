@@ -87,7 +87,7 @@
                 <h1 id="stripe_header">Sign In Student</h1>
             </div>
             <section>
-                <form name="sign_in_student_form" onsubmit="sign_in()" action="../student/student_home.html">
+                <form name="sign_in_student_form" onsubmit="sign_in()">
                     <p>
                         E-mail:<br>
                         <input type="email" name="e-mail" id="e-mail" placeholder="Input your E-mail here" required>
@@ -101,6 +101,7 @@
                         <span id="sign_in_complete">Please wait</span>
                     </p>
                 </form>
+                <button id="sign_in_button_real" onclick="sign_in()">Sign In</button>
             </section>
         </div>
     </div>

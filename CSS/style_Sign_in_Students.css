@@ -189,7 +189,9 @@ input{
   text-align: center;
 }
 
-
+#sign_in_button{
+  display: none;
+}
 
 #sign_in_complete{
   display: none;

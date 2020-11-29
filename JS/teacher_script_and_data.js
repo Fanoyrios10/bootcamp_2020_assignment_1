@@ -242,11 +242,11 @@ function sign_in() {
   }
   if (sessionStorage.getItem('test') == null) {
     for (let i = 0; i < teachers_number_old.length; i++) {
-      if (email_sign_in == teachers_email_old[i] || password_sign_in == teachers_Password_old[i]) {
+      if (email_sign_in == teachers_email_old[i] && password_sign_in == teachers_Password_old[i]) {
         let teacher_sign_in_id = teachers_number_old[i];
         sessionStorage.setItem("teacher_sign_in_id",JSON.stringify(teacher_sign_in_id));
         window.alert("Welcome back " + teachers_first_name_old[i] + "!!!");
-        setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
+        location.href = "../teacher/teacher_home.html"
         return i;
       }else{
         pass = 0;
@@ -254,13 +254,11 @@ function sign_in() {
     }
   }else {
     for (let i = 0; i <= teachers_number_new.length; i++) {
-      if (email_sign_in == teachers_email_new[i] || password_sign_in == teachers_Password_new[i]) {
-        console.log(teachers_number_new.length);
-        console.log(i);
+      if (email_sign_in == teachers_email_new[i] && password_sign_in == teachers_Password_new[i]) {
         let teacher_sign_in_id = teachers_number_new[i];
         sessionStorage.setItem("teacher_sign_in_id",JSON.stringify(teacher_sign_in_id));
         window.alert("Welcome back " + teachers_first_name_new[i] + "!!!");
-        setTimeout (function (){location.href = "../teacher/teacher_home.html"}, 1000);
+        location.href = "../teacher/teacher_home.html"
         return i;
       }else{
         pass = 0;
@@ -523,7 +521,7 @@ if (document.getElementById("stripe_header").innerHTML == "From here you can vie
       document.getElementById("table_teacher_home_desired_subject").innerHTML = teachers_subject_not_available_new[teacher_sign_in_id];
       document.getElementById("table_teacher_home_actual_course").innerHTML = teachers_actual_courses_new[teacher_sign_in_id];
     }
-  if (sessionStorage.getItem('test3') == null) {
+  if (sessionStorage.getItem('test') == null) {
     document.getElementById("table_teacher_home_desired_course").innerHTML = teachers_desired_courses_old[teacher_sign_in_id];
   }else{
     document.getElementById("table_teacher_home_desired_course").innerHTML = teachers_desired_courses_new[teacher_sign_in_id];
